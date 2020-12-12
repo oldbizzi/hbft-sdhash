@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/bizzi/IC/mrsh-hbft-master/src/sdhash.cpp
+iostream
+-
+stdio.h
+-
+time.h
+-
+cstdint
+-
+math.h
+-
+string.h
+-
+stdlib.h
+-
+iostream
+-
+fstream
+-
+errno.h
+-
+inttypes.h
+-
+sys/stat.h
+-
+openssl/sha.h
+-
+sys/socket.h
+-
+arpa/inet.h
+-
+boost/cstdint.hpp
+-
+boost/multiprecision/cpp_int.hpp
+-
+
