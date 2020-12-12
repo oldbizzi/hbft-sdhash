@@ -18,8 +18,8 @@
 #include <math.h>
 #include <unistd.h>
 
-//FILE_HASH *SDHASH_EXT(FILE_CONTENTS *fc);
-FILE_HASH  *SDHASH_EXT(FILE_CONTENTS *fc);
+
+FILE_HASH  *SDHASH_EXT(FILE_CONTENTS *fc); // define a função do sdhash?
 
 int left(int i) {
     return i * 2;

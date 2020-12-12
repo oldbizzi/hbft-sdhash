@@ -284,20 +284,34 @@ void gen_chunk_scores( const uint16_t *chunk_ranks, const uint64_t chunk_size, u
 void gen_chunk_hash( uint8_t *file_buffer, const uint64_t chunk_pos, const uint16_t *chunk_scores, const uint64_t chunk_size,FILE_CONTENTS *fc, FILE_HASH *fh) {
     uint64_t i;
     unsigned int sha1_hash[5];
-    results_summary[0] = 0,results_summary[1]=0,results_summary[2] = 0, results_summary[3] = 0;
+    //results_summary[0] = 0,results_summary[1]=0,results_summary[2] = 0, results_summary[3] = 0;
     int az = 0;
+
+    printf("%s\n",fc->filename);
+
     if (chunk_size > pop_win_size) {
         for( i=0; i<chunk_size-pop_win_size; i++) {
             if( chunk_scores[i] > threshold) {
                     char buf[15]; //storing the cutting hash (55 bits) temporarily
+
                     int size = 0; //controling the position of each part of the hash
+
                     unsigned int *hash_piece; //11 bits selected from hash
 
                     // sintaxe sha1: sha1(input,tamanho,saida);
                     //fixed hash size input of 64 bits
 
                     SHA1(file_buffer + chunk_pos + i, pop_win_size, (uint8_t *)sha1_hash);
+
+                    //for(int r = 0; r< 5; r++) printf("%X\n",sha1_hash[r]);
+                    //printf("\n");
+
+                    // A partir de agora decido o que vai ser feito, adcionado, ou oq
+
+                    add_hash_entry(fh, init_hash_entry(*sha1_hash, i));
+
                     }
+
             }
         }
     }
@@ -405,11 +419,12 @@ void sdbf( const char *name,std::istream *ifs,uint32_t dd_block_size,uint64_t ms
 extern FILE_HASH *SDHASH_EXT(FILE_CONTENTS *fc){
     printf("Está entrando no sdhash mesmo\n");
     // novo
+    printf("%d\n",fc->filesize);
     FILE_HASH *fh = init_file_hash(); // inicializa o file_hashing
 
 
-   // 1 - vou receber só o file contents, que tem o tamanho do arquivo,nome, etc
-   // 2 - preciso incluir a structure de file hash e file contents
+   // 1 - vou receber só o file contents, que tem o tamanho do arquivo,nome, etc - Feito
+   // 2 - preciso incluir a structure de file hash e file contents - Feito
    // 3 - a cada hash que eu receber preciso passar para o add_hash_entry, mas antes,passar o hash pelo init_hash_entry (descobrir o q é )
    // 4 - retornar o file hash
 
@@ -429,5 +444,6 @@ extern FILE_HASH *SDHASH_EXT(FILE_CONTENTS *fc){
 
     is->close();
     delete is;
+
     return fh;
     }

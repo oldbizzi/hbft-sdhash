@@ -98,7 +98,7 @@ int main(int argc, char *argv[]){
 		initalizeDefaultModes(64, 6);
 
 
-		char *tree_dirname = "./src";
+		char *tree_dirname = "./header";
 
     // temporary parameters
     char *search_dirname = "./src";

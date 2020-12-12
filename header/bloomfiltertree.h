@@ -13,7 +13,7 @@
 extern "C"{
 #endif
 */
-#include "./sdhash.h"
+#include "sdhash.h"
 /*
 #ifdef __cplusplus
 }

@@ -52,16 +52,16 @@ void destroy_bf(BLOOMFILTER *bf) {
  */
 void add_hash_to_bloomfilter(BLOOMFILTER *bf, uint256 hash_val) {
 
+
     uint64 masked_bits, byte_pos;
     short bit_pos;
     unsigned char *test = hash_val;
-
     uint64 *p = hash_val;
     uint64 tmpHash = (((uint64) hash_val[1] << 32) ^ hash_val[0]);
+    // problema na hora de acessar hash_val
 
     //add the hash value to the bloom filter
     for (int j = 0; j < SUBHASHES; j++) {
-
         //get least significant bytes and use one relevant by AND MASK
         masked_bits = tmpHash & bf->mask;
 
