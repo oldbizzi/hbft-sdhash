@@ -7,7 +7,7 @@
 #include <stdio.h>
 
 #include <math.h>
-
+extern "C" void add_hash_to_bloomfilter(BLOOMFILTER *bf, uint256 hash_val)
 
 
 uint32 roll_hashx(unsigned char c, uchar window[], uint32 rhData[])
@@ -30,7 +30,7 @@ uint32 roll_hashx(unsigned char c, uchar window[], uint32 rhData[])
        window[rhData[0]] = c;
        rhData[0] = (++rhData[0]) % ROLLING_WINDOW;*/
     /* The original spamsum AND'ed this value with 0xFFFFFFFF which
-       in theory should have no effect. This AND has been removed 
+       in theory should have no effect. This AND has been removed
        for performance (jk) */
     rhData[3] = (rhData[3] << 5); //& 0xFFFFFFFF;
     rhData[3] ^= c;
@@ -270,4 +270,3 @@ void createResultsSummary(BLOOMFILTER *bf, uint256 hash_val, int *results_summar
 	}else
 		results_summary[3] = 0;
 }
-

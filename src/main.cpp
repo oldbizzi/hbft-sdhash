@@ -11,12 +11,20 @@ extern "C"{
 #include "../header/fingerprint.h"
 #include "../header/config.h"
 }
-#include "../header/sdhash.h"
+
 #include <unistd.h>
+
+extern "C"{
+
+BLOOMFILTER_TREE    *init_fixed_bf_tree(unsigned int, unsigned long);
+BLOOMFILTER_TREE    *init_variable_bf_tree(unsigned int, unsigned long);
+void                add_path_to_bf_tree(BLOOMFILTER_TREE *, char *);
 #include <time.h>
 #include <stdlib.h>
 #include <dirent.h>
 #include <math.h>
+
+}
 
 MODES *mode;
 static void initalizeDefaultModes(int block_size, int min_run){
@@ -40,7 +48,7 @@ Além disto, coloquei também as declarações de block_size e min_run em uma fu
 
 
 
-void search_path(BLOOMFILTER_TREE *bft, char *filename){
+extern "C" void search_path(BLOOMFILTER_TREE *bft, char *filename){
     DIR *dir;
     struct dirent *ent;
     const int max_path_length = 1024;
@@ -141,6 +149,7 @@ int main(int argc, char *argv[]){
     build_bf_tree(tree);
 #endif
     clock_t build_toc = clock();
+/* -----------------------------
 
 #ifdef LOGGING
     for ( int i = 1; i < tree->size; i++ ) {
@@ -214,8 +223,8 @@ int main(int argc, char *argv[]){
 
     for( int i = 0; i < leaf_num; i++ ) {
         printf("%d: %d %d\n", i, result[i], count_ones(get_leaf_bf(tree, i)));
-    }*/
-
+    }*   / ------ arrumar aqui, o comentário vai até aqi
+-------------------------- meu */
     destroy_bf_tree(tree);
 		return 0;
 }
