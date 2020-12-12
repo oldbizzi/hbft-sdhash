@@ -1,17 +1,19 @@
 //
 // Created by David Lillis on 08/09/2016.
 //
+#ifndef BLOOMFILTERTREE_H
+#define BLOOMFILTERTREE_H
 
-#include "helper.h"
-#include "bloomfilter.h"
-#include "fingerprintList.h"
-#include "config.h"
+#include "./helper.h"
+#include "./bloomfilter.h"
+#include "./fingerprintList.h"
+#include "./config.h"
 /*
 #ifdef __cplusplus
 extern "C"{
 #endif
 */
-#include "sdhash.h"
+#include "./sdhash.h"
 /*
 #ifdef __cplusplus
 }
@@ -48,3 +50,5 @@ void                destroy_bf_tree(BLOOMFILTER_TREE *);
 int                 insert_into_bf_tree(BLOOMFILTER_TREE *, FILE_CONTENTS *);
 
 BLOOMFILTER_TREE    *load_bf_tree( char * );
+
+#endif

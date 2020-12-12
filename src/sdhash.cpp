@@ -32,7 +32,7 @@ extern "C"
 #include "../header/helper.h"
 }
 
-extern "C" FILE_HASH SDHASH_H(FILE_CONTENTS *fc);
+//FILE_HASH SDHASH_H(FILE_CONTENTS *fc);
 
 #include <boost/multiprecision/cpp_int.hpp>
 
@@ -402,7 +402,7 @@ void sdbf( const char *name,std::istream *ifs,uint32_t dd_block_size,uint64_t ms
         free(bufferinput);
         }
 
-FILE_HASH *SDHASH_EXT(FILE_CONTENTS *fc){
+extern FILE_HASH *SDHASH_EXT(FILE_CONTENTS *fc){
     printf("Está entrando no sdhash mesmo\n");
     // novo
     FILE_HASH *fh = init_file_hash(); // inicializa o file_hashing

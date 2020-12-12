@@ -5,6 +5,7 @@
 #include "config.h"
 #include "helper.h"
 #include "fingerprint.h"
+#include "sdhash.h"
 
 #ifndef FILE_HASH_H
 

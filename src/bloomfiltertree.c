@@ -9,9 +9,9 @@
 #include "../header/helper.h"
 #include "../header/config.h"
 
-#ifndef __cplusplus
+//#ifndef __cplusplus
+
 #include "../header/sdhash.h"
-#endif
 
 #include <dirent.h>
 #include <stdbool.h>

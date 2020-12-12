@@ -13,7 +13,8 @@
 //#endif
 
 
+//#ifdef __cplusplus
 FILE_HASH  *SDHASH_EXT(FILE_CONTENTS *fc);
-
+//#endif
 
 #endif

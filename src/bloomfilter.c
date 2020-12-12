@@ -51,13 +51,6 @@ void destroy_bf(BLOOMFILTER *bf) {
  * adds a hash value (eg. FNV) to the Bloom filter
  */
 void add_hash_to_bloomfilter(BLOOMFILTER *bf, uint256 hash_val) {
-//    printf("ADDR: %p\n", bf);
-//    printf("INS: ");
-//    unsigned int* v = hash_val;
-//    for( int i = 0; i < 8; i++) {
-//        printf("%08x", *(v++));
-//    }
-//    printf("\n");
 
     uint64 masked_bits, byte_pos;
     short bit_pos;

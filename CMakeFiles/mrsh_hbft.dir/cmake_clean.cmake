@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/mrsh_hbft.dir/src/main.cpp.o"
   "CMakeFiles/mrsh_hbft.dir/src/sdhash.cpp.o"
+  "CMakeFiles/mrsh_hbft.dir/src/main.cpp.o"
   "CMakeFiles/mrsh_hbft.dir/src/bloomfilter.c.o"
   "CMakeFiles/mrsh_hbft.dir/src/fnv.c.o"
   "CMakeFiles/mrsh_hbft.dir/src/hashing.c.o"

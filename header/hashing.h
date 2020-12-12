@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   hashing.h
  *
  * Created on 5. Juni 2012, 13:22
@@ -14,6 +14,7 @@
 #include "bloomfilter.h"
 #include "helper.h"
 #include "filehash.h"
+//#include "sdhash.h"
 
 
 int 		*hashAndDo(BLOOMFILTER *bf, FILE_CONTENTS *fc, short fill);

@@ -8,3 +8,21 @@ CXX_DEFINES =
 
 CXX_INCLUDES = 
 
+# Custom flags: CMakeFiles/mrsh_hbft.dir/src/bloomfilter.c.o_FLAGS = -x c
+
+# Custom flags: CMakeFiles/mrsh_hbft.dir/src/fnv.c.o_FLAGS = -x c
+
+# Custom flags: CMakeFiles/mrsh_hbft.dir/src/hashing.c.o_FLAGS = -x c
+
+# Custom flags: CMakeFiles/mrsh_hbft.dir/src/helper.c.o_FLAGS = -x c
+
+# Custom flags: CMakeFiles/mrsh_hbft.dir/src/bloomfiltertree.c.o_FLAGS = -x c
+
+# Custom flags: CMakeFiles/mrsh_hbft.dir/header/filehash.h.o_FLAGS = -x c
+
+# Custom flags: CMakeFiles/mrsh_hbft.dir/src/filehash.c.o_FLAGS = -x c
+
+# Custom flags: CMakeFiles/mrsh_hbft.dir/src/fingerprint.c.o_FLAGS = -x c
+
+# Custom flags: CMakeFiles/mrsh_hbft.dir/src/fingerprintList.c.o_FLAGS = -x c
+

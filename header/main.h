@@ -15,6 +15,8 @@ extern "C"{
 #include "../header/hashing.h"
 #include "../header/bloomfilter.h"
 #include "../header/bloomfiltertree.h"
+#include "sdhash.h"
+
 #ifdef __cplusplus
 }
 #endif

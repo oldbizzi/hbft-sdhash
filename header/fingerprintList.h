@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   bloom.h
  * Author: Frank Breitinger
  *
@@ -9,16 +9,17 @@
 #define	FINTERPRINTLIST_H
 
 #include "fingerprint.h"
+//#include "sdhash.h"
 
 
 typedef struct {
     //List of fingerprints, created on reading a file having many hashes
     FINGERPRINT *list;
     FINGERPRINT *last_element;
-    
+
     // size of the list, used while freeing the memory
     unsigned int size;
-    
+
 }FINGERPRINT_LIST;
 
 
@@ -46,7 +47,3 @@ unsigned int        read_fingerprint_file(FINGERPRINT_LIST *, FILE *);
 
 
 #endif	/* BLOOM_H */
-
-
-
-

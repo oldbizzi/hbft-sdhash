@@ -57,33 +57,9 @@ include CMakeFiles/mrsh_hbft.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/mrsh_hbft.dir/flags.make
 
-CMakeFiles/mrsh_hbft.dir/src/main.cpp.o: CMakeFiles/mrsh_hbft.dir/flags.make
-CMakeFiles/mrsh_hbft.dir/src/main.cpp.o: src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bizzi/IC/mrsh-hbft-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/mrsh_hbft.dir/src/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mrsh_hbft.dir/src/main.cpp.o -c /home/bizzi/IC/mrsh-hbft-master/src/main.cpp
-
-CMakeFiles/mrsh_hbft.dir/src/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mrsh_hbft.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bizzi/IC/mrsh-hbft-master/src/main.cpp > CMakeFiles/mrsh_hbft.dir/src/main.cpp.i
-
-CMakeFiles/mrsh_hbft.dir/src/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mrsh_hbft.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bizzi/IC/mrsh-hbft-master/src/main.cpp -o CMakeFiles/mrsh_hbft.dir/src/main.cpp.s
-
-CMakeFiles/mrsh_hbft.dir/src/main.cpp.o.requires:
-
-.PHONY : CMakeFiles/mrsh_hbft.dir/src/main.cpp.o.requires
-
-CMakeFiles/mrsh_hbft.dir/src/main.cpp.o.provides: CMakeFiles/mrsh_hbft.dir/src/main.cpp.o.requires
-	$(MAKE) -f CMakeFiles/mrsh_hbft.dir/build.make CMakeFiles/mrsh_hbft.dir/src/main.cpp.o.provides.build
-.PHONY : CMakeFiles/mrsh_hbft.dir/src/main.cpp.o.provides
-
-CMakeFiles/mrsh_hbft.dir/src/main.cpp.o.provides.build: CMakeFiles/mrsh_hbft.dir/src/main.cpp.o
-
-
 CMakeFiles/mrsh_hbft.dir/src/sdhash.cpp.o: CMakeFiles/mrsh_hbft.dir/flags.make
 CMakeFiles/mrsh_hbft.dir/src/sdhash.cpp.o: src/sdhash.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bizzi/IC/mrsh-hbft-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/mrsh_hbft.dir/src/sdhash.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bizzi/IC/mrsh-hbft-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/mrsh_hbft.dir/src/sdhash.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mrsh_hbft.dir/src/sdhash.cpp.o -c /home/bizzi/IC/mrsh-hbft-master/src/sdhash.cpp
 
 CMakeFiles/mrsh_hbft.dir/src/sdhash.cpp.i: cmake_force
@@ -105,18 +81,42 @@ CMakeFiles/mrsh_hbft.dir/src/sdhash.cpp.o.provides: CMakeFiles/mrsh_hbft.dir/src
 CMakeFiles/mrsh_hbft.dir/src/sdhash.cpp.o.provides.build: CMakeFiles/mrsh_hbft.dir/src/sdhash.cpp.o
 
 
+CMakeFiles/mrsh_hbft.dir/src/main.cpp.o: CMakeFiles/mrsh_hbft.dir/flags.make
+CMakeFiles/mrsh_hbft.dir/src/main.cpp.o: src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bizzi/IC/mrsh-hbft-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/mrsh_hbft.dir/src/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mrsh_hbft.dir/src/main.cpp.o -c /home/bizzi/IC/mrsh-hbft-master/src/main.cpp
+
+CMakeFiles/mrsh_hbft.dir/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mrsh_hbft.dir/src/main.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bizzi/IC/mrsh-hbft-master/src/main.cpp > CMakeFiles/mrsh_hbft.dir/src/main.cpp.i
+
+CMakeFiles/mrsh_hbft.dir/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mrsh_hbft.dir/src/main.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bizzi/IC/mrsh-hbft-master/src/main.cpp -o CMakeFiles/mrsh_hbft.dir/src/main.cpp.s
+
+CMakeFiles/mrsh_hbft.dir/src/main.cpp.o.requires:
+
+.PHONY : CMakeFiles/mrsh_hbft.dir/src/main.cpp.o.requires
+
+CMakeFiles/mrsh_hbft.dir/src/main.cpp.o.provides: CMakeFiles/mrsh_hbft.dir/src/main.cpp.o.requires
+	$(MAKE) -f CMakeFiles/mrsh_hbft.dir/build.make CMakeFiles/mrsh_hbft.dir/src/main.cpp.o.provides.build
+.PHONY : CMakeFiles/mrsh_hbft.dir/src/main.cpp.o.provides
+
+CMakeFiles/mrsh_hbft.dir/src/main.cpp.o.provides.build: CMakeFiles/mrsh_hbft.dir/src/main.cpp.o
+
+
 CMakeFiles/mrsh_hbft.dir/src/bloomfilter.c.o: CMakeFiles/mrsh_hbft.dir/flags.make
 CMakeFiles/mrsh_hbft.dir/src/bloomfilter.c.o: src/bloomfilter.c
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bizzi/IC/mrsh-hbft-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/mrsh_hbft.dir/src/bloomfilter.c.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mrsh_hbft.dir/src/bloomfilter.c.o -c /home/bizzi/IC/mrsh-hbft-master/src/bloomfilter.c
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c -o CMakeFiles/mrsh_hbft.dir/src/bloomfilter.c.o -c /home/bizzi/IC/mrsh-hbft-master/src/bloomfilter.c
 
 CMakeFiles/mrsh_hbft.dir/src/bloomfilter.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mrsh_hbft.dir/src/bloomfilter.c.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bizzi/IC/mrsh-hbft-master/src/bloomfilter.c > CMakeFiles/mrsh_hbft.dir/src/bloomfilter.c.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c -E /home/bizzi/IC/mrsh-hbft-master/src/bloomfilter.c > CMakeFiles/mrsh_hbft.dir/src/bloomfilter.c.i
 
 CMakeFiles/mrsh_hbft.dir/src/bloomfilter.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mrsh_hbft.dir/src/bloomfilter.c.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bizzi/IC/mrsh-hbft-master/src/bloomfilter.c -o CMakeFiles/mrsh_hbft.dir/src/bloomfilter.c.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c -S /home/bizzi/IC/mrsh-hbft-master/src/bloomfilter.c -o CMakeFiles/mrsh_hbft.dir/src/bloomfilter.c.s
 
 CMakeFiles/mrsh_hbft.dir/src/bloomfilter.c.o.requires:
 
@@ -132,15 +132,15 @@ CMakeFiles/mrsh_hbft.dir/src/bloomfilter.c.o.provides.build: CMakeFiles/mrsh_hbf
 CMakeFiles/mrsh_hbft.dir/src/fnv.c.o: CMakeFiles/mrsh_hbft.dir/flags.make
 CMakeFiles/mrsh_hbft.dir/src/fnv.c.o: src/fnv.c
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bizzi/IC/mrsh-hbft-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/mrsh_hbft.dir/src/fnv.c.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mrsh_hbft.dir/src/fnv.c.o -c /home/bizzi/IC/mrsh-hbft-master/src/fnv.c
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c -o CMakeFiles/mrsh_hbft.dir/src/fnv.c.o -c /home/bizzi/IC/mrsh-hbft-master/src/fnv.c
 
 CMakeFiles/mrsh_hbft.dir/src/fnv.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mrsh_hbft.dir/src/fnv.c.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bizzi/IC/mrsh-hbft-master/src/fnv.c > CMakeFiles/mrsh_hbft.dir/src/fnv.c.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c -E /home/bizzi/IC/mrsh-hbft-master/src/fnv.c > CMakeFiles/mrsh_hbft.dir/src/fnv.c.i
 
 CMakeFiles/mrsh_hbft.dir/src/fnv.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mrsh_hbft.dir/src/fnv.c.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bizzi/IC/mrsh-hbft-master/src/fnv.c -o CMakeFiles/mrsh_hbft.dir/src/fnv.c.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c -S /home/bizzi/IC/mrsh-hbft-master/src/fnv.c -o CMakeFiles/mrsh_hbft.dir/src/fnv.c.s
 
 CMakeFiles/mrsh_hbft.dir/src/fnv.c.o.requires:
 
@@ -156,15 +156,15 @@ CMakeFiles/mrsh_hbft.dir/src/fnv.c.o.provides.build: CMakeFiles/mrsh_hbft.dir/sr
 CMakeFiles/mrsh_hbft.dir/src/hashing.c.o: CMakeFiles/mrsh_hbft.dir/flags.make
 CMakeFiles/mrsh_hbft.dir/src/hashing.c.o: src/hashing.c
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bizzi/IC/mrsh-hbft-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/mrsh_hbft.dir/src/hashing.c.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mrsh_hbft.dir/src/hashing.c.o -c /home/bizzi/IC/mrsh-hbft-master/src/hashing.c
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c -o CMakeFiles/mrsh_hbft.dir/src/hashing.c.o -c /home/bizzi/IC/mrsh-hbft-master/src/hashing.c
 
 CMakeFiles/mrsh_hbft.dir/src/hashing.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mrsh_hbft.dir/src/hashing.c.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bizzi/IC/mrsh-hbft-master/src/hashing.c > CMakeFiles/mrsh_hbft.dir/src/hashing.c.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c -E /home/bizzi/IC/mrsh-hbft-master/src/hashing.c > CMakeFiles/mrsh_hbft.dir/src/hashing.c.i
 
 CMakeFiles/mrsh_hbft.dir/src/hashing.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mrsh_hbft.dir/src/hashing.c.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bizzi/IC/mrsh-hbft-master/src/hashing.c -o CMakeFiles/mrsh_hbft.dir/src/hashing.c.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c -S /home/bizzi/IC/mrsh-hbft-master/src/hashing.c -o CMakeFiles/mrsh_hbft.dir/src/hashing.c.s
 
 CMakeFiles/mrsh_hbft.dir/src/hashing.c.o.requires:
 
@@ -180,15 +180,15 @@ CMakeFiles/mrsh_hbft.dir/src/hashing.c.o.provides.build: CMakeFiles/mrsh_hbft.di
 CMakeFiles/mrsh_hbft.dir/src/helper.c.o: CMakeFiles/mrsh_hbft.dir/flags.make
 CMakeFiles/mrsh_hbft.dir/src/helper.c.o: src/helper.c
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bizzi/IC/mrsh-hbft-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/mrsh_hbft.dir/src/helper.c.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mrsh_hbft.dir/src/helper.c.o -c /home/bizzi/IC/mrsh-hbft-master/src/helper.c
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c -o CMakeFiles/mrsh_hbft.dir/src/helper.c.o -c /home/bizzi/IC/mrsh-hbft-master/src/helper.c
 
 CMakeFiles/mrsh_hbft.dir/src/helper.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mrsh_hbft.dir/src/helper.c.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bizzi/IC/mrsh-hbft-master/src/helper.c > CMakeFiles/mrsh_hbft.dir/src/helper.c.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c -E /home/bizzi/IC/mrsh-hbft-master/src/helper.c > CMakeFiles/mrsh_hbft.dir/src/helper.c.i
 
 CMakeFiles/mrsh_hbft.dir/src/helper.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mrsh_hbft.dir/src/helper.c.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bizzi/IC/mrsh-hbft-master/src/helper.c -o CMakeFiles/mrsh_hbft.dir/src/helper.c.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c -S /home/bizzi/IC/mrsh-hbft-master/src/helper.c -o CMakeFiles/mrsh_hbft.dir/src/helper.c.s
 
 CMakeFiles/mrsh_hbft.dir/src/helper.c.o.requires:
 
@@ -204,15 +204,15 @@ CMakeFiles/mrsh_hbft.dir/src/helper.c.o.provides.build: CMakeFiles/mrsh_hbft.dir
 CMakeFiles/mrsh_hbft.dir/src/bloomfiltertree.c.o: CMakeFiles/mrsh_hbft.dir/flags.make
 CMakeFiles/mrsh_hbft.dir/src/bloomfiltertree.c.o: src/bloomfiltertree.c
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bizzi/IC/mrsh-hbft-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/mrsh_hbft.dir/src/bloomfiltertree.c.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mrsh_hbft.dir/src/bloomfiltertree.c.o -c /home/bizzi/IC/mrsh-hbft-master/src/bloomfiltertree.c
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c -o CMakeFiles/mrsh_hbft.dir/src/bloomfiltertree.c.o -c /home/bizzi/IC/mrsh-hbft-master/src/bloomfiltertree.c
 
 CMakeFiles/mrsh_hbft.dir/src/bloomfiltertree.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mrsh_hbft.dir/src/bloomfiltertree.c.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bizzi/IC/mrsh-hbft-master/src/bloomfiltertree.c > CMakeFiles/mrsh_hbft.dir/src/bloomfiltertree.c.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c -E /home/bizzi/IC/mrsh-hbft-master/src/bloomfiltertree.c > CMakeFiles/mrsh_hbft.dir/src/bloomfiltertree.c.i
 
 CMakeFiles/mrsh_hbft.dir/src/bloomfiltertree.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mrsh_hbft.dir/src/bloomfiltertree.c.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bizzi/IC/mrsh-hbft-master/src/bloomfiltertree.c -o CMakeFiles/mrsh_hbft.dir/src/bloomfiltertree.c.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c -S /home/bizzi/IC/mrsh-hbft-master/src/bloomfiltertree.c -o CMakeFiles/mrsh_hbft.dir/src/bloomfiltertree.c.s
 
 CMakeFiles/mrsh_hbft.dir/src/bloomfiltertree.c.o.requires:
 
@@ -228,15 +228,15 @@ CMakeFiles/mrsh_hbft.dir/src/bloomfiltertree.c.o.provides.build: CMakeFiles/mrsh
 CMakeFiles/mrsh_hbft.dir/header/filehash.h.o: CMakeFiles/mrsh_hbft.dir/flags.make
 CMakeFiles/mrsh_hbft.dir/header/filehash.h.o: header/filehash.h
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bizzi/IC/mrsh-hbft-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/mrsh_hbft.dir/header/filehash.h.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mrsh_hbft.dir/header/filehash.h.o -c /home/bizzi/IC/mrsh-hbft-master/header/filehash.h
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c -o CMakeFiles/mrsh_hbft.dir/header/filehash.h.o -c /home/bizzi/IC/mrsh-hbft-master/header/filehash.h
 
 CMakeFiles/mrsh_hbft.dir/header/filehash.h.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mrsh_hbft.dir/header/filehash.h.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bizzi/IC/mrsh-hbft-master/header/filehash.h > CMakeFiles/mrsh_hbft.dir/header/filehash.h.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c -E /home/bizzi/IC/mrsh-hbft-master/header/filehash.h > CMakeFiles/mrsh_hbft.dir/header/filehash.h.i
 
 CMakeFiles/mrsh_hbft.dir/header/filehash.h.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mrsh_hbft.dir/header/filehash.h.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bizzi/IC/mrsh-hbft-master/header/filehash.h -o CMakeFiles/mrsh_hbft.dir/header/filehash.h.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c -S /home/bizzi/IC/mrsh-hbft-master/header/filehash.h -o CMakeFiles/mrsh_hbft.dir/header/filehash.h.s
 
 CMakeFiles/mrsh_hbft.dir/header/filehash.h.o.requires:
 
@@ -252,15 +252,15 @@ CMakeFiles/mrsh_hbft.dir/header/filehash.h.o.provides.build: CMakeFiles/mrsh_hbf
 CMakeFiles/mrsh_hbft.dir/src/filehash.c.o: CMakeFiles/mrsh_hbft.dir/flags.make
 CMakeFiles/mrsh_hbft.dir/src/filehash.c.o: src/filehash.c
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bizzi/IC/mrsh-hbft-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/mrsh_hbft.dir/src/filehash.c.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mrsh_hbft.dir/src/filehash.c.o -c /home/bizzi/IC/mrsh-hbft-master/src/filehash.c
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c -o CMakeFiles/mrsh_hbft.dir/src/filehash.c.o -c /home/bizzi/IC/mrsh-hbft-master/src/filehash.c
 
 CMakeFiles/mrsh_hbft.dir/src/filehash.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mrsh_hbft.dir/src/filehash.c.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bizzi/IC/mrsh-hbft-master/src/filehash.c > CMakeFiles/mrsh_hbft.dir/src/filehash.c.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c -E /home/bizzi/IC/mrsh-hbft-master/src/filehash.c > CMakeFiles/mrsh_hbft.dir/src/filehash.c.i
 
 CMakeFiles/mrsh_hbft.dir/src/filehash.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mrsh_hbft.dir/src/filehash.c.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bizzi/IC/mrsh-hbft-master/src/filehash.c -o CMakeFiles/mrsh_hbft.dir/src/filehash.c.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c -S /home/bizzi/IC/mrsh-hbft-master/src/filehash.c -o CMakeFiles/mrsh_hbft.dir/src/filehash.c.s
 
 CMakeFiles/mrsh_hbft.dir/src/filehash.c.o.requires:
 
@@ -276,15 +276,15 @@ CMakeFiles/mrsh_hbft.dir/src/filehash.c.o.provides.build: CMakeFiles/mrsh_hbft.d
 CMakeFiles/mrsh_hbft.dir/src/fingerprint.c.o: CMakeFiles/mrsh_hbft.dir/flags.make
 CMakeFiles/mrsh_hbft.dir/src/fingerprint.c.o: src/fingerprint.c
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bizzi/IC/mrsh-hbft-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/mrsh_hbft.dir/src/fingerprint.c.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mrsh_hbft.dir/src/fingerprint.c.o -c /home/bizzi/IC/mrsh-hbft-master/src/fingerprint.c
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c -o CMakeFiles/mrsh_hbft.dir/src/fingerprint.c.o -c /home/bizzi/IC/mrsh-hbft-master/src/fingerprint.c
 
 CMakeFiles/mrsh_hbft.dir/src/fingerprint.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mrsh_hbft.dir/src/fingerprint.c.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bizzi/IC/mrsh-hbft-master/src/fingerprint.c > CMakeFiles/mrsh_hbft.dir/src/fingerprint.c.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c -E /home/bizzi/IC/mrsh-hbft-master/src/fingerprint.c > CMakeFiles/mrsh_hbft.dir/src/fingerprint.c.i
 
 CMakeFiles/mrsh_hbft.dir/src/fingerprint.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mrsh_hbft.dir/src/fingerprint.c.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bizzi/IC/mrsh-hbft-master/src/fingerprint.c -o CMakeFiles/mrsh_hbft.dir/src/fingerprint.c.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c -S /home/bizzi/IC/mrsh-hbft-master/src/fingerprint.c -o CMakeFiles/mrsh_hbft.dir/src/fingerprint.c.s
 
 CMakeFiles/mrsh_hbft.dir/src/fingerprint.c.o.requires:
 
@@ -300,15 +300,15 @@ CMakeFiles/mrsh_hbft.dir/src/fingerprint.c.o.provides.build: CMakeFiles/mrsh_hbf
 CMakeFiles/mrsh_hbft.dir/src/fingerprintList.c.o: CMakeFiles/mrsh_hbft.dir/flags.make
 CMakeFiles/mrsh_hbft.dir/src/fingerprintList.c.o: src/fingerprintList.c
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bizzi/IC/mrsh-hbft-master/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/mrsh_hbft.dir/src/fingerprintList.c.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mrsh_hbft.dir/src/fingerprintList.c.o -c /home/bizzi/IC/mrsh-hbft-master/src/fingerprintList.c
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c -o CMakeFiles/mrsh_hbft.dir/src/fingerprintList.c.o -c /home/bizzi/IC/mrsh-hbft-master/src/fingerprintList.c
 
 CMakeFiles/mrsh_hbft.dir/src/fingerprintList.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mrsh_hbft.dir/src/fingerprintList.c.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bizzi/IC/mrsh-hbft-master/src/fingerprintList.c > CMakeFiles/mrsh_hbft.dir/src/fingerprintList.c.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c -E /home/bizzi/IC/mrsh-hbft-master/src/fingerprintList.c > CMakeFiles/mrsh_hbft.dir/src/fingerprintList.c.i
 
 CMakeFiles/mrsh_hbft.dir/src/fingerprintList.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mrsh_hbft.dir/src/fingerprintList.c.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bizzi/IC/mrsh-hbft-master/src/fingerprintList.c -o CMakeFiles/mrsh_hbft.dir/src/fingerprintList.c.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c -S /home/bizzi/IC/mrsh-hbft-master/src/fingerprintList.c -o CMakeFiles/mrsh_hbft.dir/src/fingerprintList.c.s
 
 CMakeFiles/mrsh_hbft.dir/src/fingerprintList.c.o.requires:
 
@@ -323,8 +323,8 @@ CMakeFiles/mrsh_hbft.dir/src/fingerprintList.c.o.provides.build: CMakeFiles/mrsh
 
 # Object files for target mrsh_hbft
 mrsh_hbft_OBJECTS = \
-"CMakeFiles/mrsh_hbft.dir/src/main.cpp.o" \
 "CMakeFiles/mrsh_hbft.dir/src/sdhash.cpp.o" \
+"CMakeFiles/mrsh_hbft.dir/src/main.cpp.o" \
 "CMakeFiles/mrsh_hbft.dir/src/bloomfilter.c.o" \
 "CMakeFiles/mrsh_hbft.dir/src/fnv.c.o" \
 "CMakeFiles/mrsh_hbft.dir/src/hashing.c.o" \
@@ -338,8 +338,8 @@ mrsh_hbft_OBJECTS = \
 # External object files for target mrsh_hbft
 mrsh_hbft_EXTERNAL_OBJECTS =
 
-bin/mrsh_hbft: CMakeFiles/mrsh_hbft.dir/src/main.cpp.o
 bin/mrsh_hbft: CMakeFiles/mrsh_hbft.dir/src/sdhash.cpp.o
+bin/mrsh_hbft: CMakeFiles/mrsh_hbft.dir/src/main.cpp.o
 bin/mrsh_hbft: CMakeFiles/mrsh_hbft.dir/src/bloomfilter.c.o
 bin/mrsh_hbft: CMakeFiles/mrsh_hbft.dir/src/fnv.c.o
 bin/mrsh_hbft: CMakeFiles/mrsh_hbft.dir/src/hashing.c.o
@@ -359,8 +359,8 @@ CMakeFiles/mrsh_hbft.dir/build: bin/mrsh_hbft
 
 .PHONY : CMakeFiles/mrsh_hbft.dir/build
 
-CMakeFiles/mrsh_hbft.dir/requires: CMakeFiles/mrsh_hbft.dir/src/main.cpp.o.requires
 CMakeFiles/mrsh_hbft.dir/requires: CMakeFiles/mrsh_hbft.dir/src/sdhash.cpp.o.requires
+CMakeFiles/mrsh_hbft.dir/requires: CMakeFiles/mrsh_hbft.dir/src/main.cpp.o.requires
 CMakeFiles/mrsh_hbft.dir/requires: CMakeFiles/mrsh_hbft.dir/src/bloomfilter.c.o.requires
 CMakeFiles/mrsh_hbft.dir/requires: CMakeFiles/mrsh_hbft.dir/src/fnv.c.o.requires
 CMakeFiles/mrsh_hbft.dir/requires: CMakeFiles/mrsh_hbft.dir/src/hashing.c.o.requires

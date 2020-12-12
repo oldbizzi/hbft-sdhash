@@ -6,21 +6,47 @@
 
 #IncludeRegexTransform: 
 
+/home/bizzi/IC/mrsh-hbft-master/header/./bloomfilter.h
+fnv.h
+/home/bizzi/IC/mrsh-hbft-master/header/./fnv.h
+
+/home/bizzi/IC/mrsh-hbft-master/header/./config.h
+
+/home/bizzi/IC/mrsh-hbft-master/header/./fingerprintList.h
+fingerprint.h
+/home/bizzi/IC/mrsh-hbft-master/header/./fingerprint.h
+
+/home/bizzi/IC/mrsh-hbft-master/header/./helper.h
+stdio.h
+-
+stdint.h
+-
+../header/config.h
+/home/bizzi/IC/mrsh-hbft-master/header/header/config.h
+
+/home/bizzi/IC/mrsh-hbft-master/header/./sdhash.h
+filehash.h
+/home/bizzi/IC/mrsh-hbft-master/header/./filehash.h
+helper.h
+/home/bizzi/IC/mrsh-hbft-master/header/./helper.h
+config.h
+/home/bizzi/IC/mrsh-hbft-master/header/./config.h
+
 /home/bizzi/IC/mrsh-hbft-master/header/bloomfilter.h
 fnv.h
 /home/bizzi/IC/mrsh-hbft-master/header/fnv.h
 
 /home/bizzi/IC/mrsh-hbft-master/header/bloomfiltertree.h
-helper.h
-/home/bizzi/IC/mrsh-hbft-master/header/helper.h
-bloomfilter.h
-/home/bizzi/IC/mrsh-hbft-master/header/bloomfilter.h
-fingerprintList.h
-/home/bizzi/IC/mrsh-hbft-master/header/fingerprintList.h
-config.h
-/home/bizzi/IC/mrsh-hbft-master/header/config.h
-sdhash.h
-/home/bizzi/IC/mrsh-hbft-master/header/sdhash.h
+./helper.h
+/home/bizzi/IC/mrsh-hbft-master/header/./helper.h
+./bloomfilter.h
+/home/bizzi/IC/mrsh-hbft-master/header/./bloomfilter.h
+./fingerprintList.h
+/home/bizzi/IC/mrsh-hbft-master/header/./fingerprintList.h
+./config.h
+/home/bizzi/IC/mrsh-hbft-master/header/./config.h
+./sdhash.h
+/home/bizzi/IC/mrsh-hbft-master/header/./sdhash.h
 
 /home/bizzi/IC/mrsh-hbft-master/header/config.h
 
@@ -31,6 +57,8 @@ helper.h
 /home/bizzi/IC/mrsh-hbft-master/header/helper.h
 fingerprint.h
 /home/bizzi/IC/mrsh-hbft-master/header/fingerprint.h
+sdhash.h
+/home/bizzi/IC/mrsh-hbft-master/header/sdhash.h
 
 /home/bizzi/IC/mrsh-hbft-master/header/fingerprint.h
 bloomfilter.h
@@ -81,6 +109,8 @@ stdint.h
 /home/bizzi/IC/mrsh-hbft-master/header/bloomfilter.h
 ../header/bloomfiltertree.h
 /home/bizzi/IC/mrsh-hbft-master/header/bloomfiltertree.h
+sdhash.h
+/home/bizzi/IC/mrsh-hbft-master/header/sdhash.h
 
 /home/bizzi/IC/mrsh-hbft-master/header/sdhash.h
 filehash.h

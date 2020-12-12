@@ -7,7 +7,7 @@
 #include <stdio.h>
 
 #include <math.h>
-extern "C" void add_hash_to_bloomfilter(BLOOMFILTER *bf, uint256 hash_val)
+//extern "C" void add_hash_to_bloomfilter(BLOOMFILTER *bf, uint256 hash_val)
 
 
 uint32 roll_hashx(unsigned char c, uchar window[], uint32 rhData[])

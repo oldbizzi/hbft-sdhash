@@ -12,7 +12,7 @@
 #include "../header/bloomfilter.h"
 #include "../header/filehash.h"
 
-extern "C" void add_hash_to_bloomfilter(BLOOMFILTER *bf, uint256 hash_val);
+//extern "C" void add_hash_to_bloomfilter(BLOOMFILTER *bf, uint256 hash_val);
 /**
  * Initializes an empty Fingerprint
  */

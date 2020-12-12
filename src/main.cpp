@@ -12,19 +12,21 @@ extern "C"{
 #include "../header/config.h"
 }
 
-#include <unistd.h>
+#include <unistd.h> // change: adicionei para não dar conflito com o getcwd, cuidado
 
 extern "C"{
 
 BLOOMFILTER_TREE    *init_fixed_bf_tree(unsigned int, unsigned long);
 BLOOMFILTER_TREE    *init_variable_bf_tree(unsigned int, unsigned long);
 void                add_path_to_bf_tree(BLOOMFILTER_TREE *, char *);
+void add_hash_to_bloomfilter(BLOOMFILTER*, unsigned int*);
 #include <time.h>
 #include <stdlib.h>
 #include <dirent.h>
 #include <math.h>
 
 }
+
 
 MODES *mode;
 static void initalizeDefaultModes(int block_size, int min_run){

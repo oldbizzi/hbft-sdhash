@@ -5,6 +5,7 @@
  */
 
 #include "fnv.h"
+//#include "sdhash.h"
 
 #ifndef BLOOMFILTER_H
 #define	BLOOMFILTER_H

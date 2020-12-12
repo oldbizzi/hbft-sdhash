@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   bloom.h
  * Author: Frank Breitinger
  *
@@ -9,6 +9,7 @@
 #define	FINGERPRINT_H
 
 #include "bloomfilter.h"
+//#include "sdhash.h"
 
 #define BLOOMFILTER_SIZE_FILE 256 // 256 bytes is the default for a mrsh_v2 fingerprint
 
@@ -16,10 +17,10 @@ typedef struct FINGERPRINT {
 	//List of Bloom filters
     BLOOMFILTER *bf_list;
     BLOOMFILTER *bf_list_last_element;
-    
+
     //Pointer to next fingerprint
     struct FINGERPRINT *next;
-    
+
    // After storing of MAXBLOCKS blocks are inserted, a new filter is created.
    // 'amount_of_BF' counts the number of filters we have for a file
    unsigned int  amount_of_BF;
@@ -27,7 +28,7 @@ typedef struct FINGERPRINT {
    // File name and size of the original file
    char          file_name[200];
    unsigned int  filesize;
-        
+
 } FINGERPRINT;
 
 
@@ -51,7 +52,3 @@ void            print_fingerprint(FINGERPRINT *);
 
 
 #endif	/* BLOOM_H */
-
-
-
-
