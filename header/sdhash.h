@@ -1,11 +1,19 @@
 #ifndef SDHASH_H
 #define	SDHASH_H
 
+// #include "../header/config.h"
+//#ifdef __cplusplus
+//extern "C" {
 
-int *SDHASH_EXT(BLOOMFILTER *bf,
- int doWhat,
- char *filename,
- unsigned int size,
- unsigned int start);
+#include "filehash.h"
+#include "helper.h"
+#include "config.h"
+
+//}
+//#endif
+
+
+FILE_HASH  *SDHASH_EXT(FILE_CONTENTS *fc);
+
 
 #endif

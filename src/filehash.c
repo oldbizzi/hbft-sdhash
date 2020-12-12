@@ -85,11 +85,14 @@ FILE_HASH *init_file_hash() {
 }
 
 HASH_ENTRY *init_hash_entry(uint256 *hash_value, int position) {
+
     HASH_ENTRY *he = calloc(1, sizeof(HASH_ENTRY));
+
     if (he == NULL) {
         fprintf(stderr, "Failed to initialised hash entry.\n");
         exit(1);
     }
+
     he->value = hash_value;
     he->position = position;
 
@@ -104,4 +107,3 @@ void add_hash_entry(FILE_HASH *fh, HASH_ENTRY *he) {
     fh->last_hash = he;
     fh->size++;
 }
-

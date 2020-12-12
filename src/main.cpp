@@ -2,6 +2,7 @@
 // Created by David Lillis on 08/09/2016.
 //
 
+extern "C"{
 #include "../header/bloomfilter.h"
 #include "../header/bloomfiltertree.h"
 #include "../header/helper.h"
@@ -9,7 +10,8 @@
 #include "../header/fingerprintList.h"
 #include "../header/fingerprint.h"
 #include "../header/config.h"
-
+}
+#include "../header/sdhash.h"
 #include <unistd.h>
 #include <time.h>
 #include <stdlib.h>
@@ -76,17 +78,20 @@ void search_path(BLOOMFILTER_TREE *bft, char *filename){
 
 int main(int argc, char *argv[]){
 
-    if ( argc == 1 ) {
+  /*  if ( argc == 1 ) {
         printf("Usage: %s tree_dir search_dir block_size min_run leaf_num", argv[0]);
         exit(10);
-    }
+    }*/
 
     //mode = malloc(sizeof(MODES));
-    initalizeDefaultModes(atoi(argv[3]), atoi(argv[4]));
-    char *tree_dirname = argv[1];
+    //initalizeDefaultModes(atoi(argv[3]), atoi(argv[4]));
+		initalizeDefaultModes(64, 6);
+
+
+		char *tree_dirname = "./src";
 
     // temporary parameters
-    char *search_dirname = argv[2];
+    char *search_dirname = "./src";
 
     // 2: block size (in bytes)
     // mode->block_size = atoi(argv[3]);
@@ -95,13 +100,14 @@ int main(int argc, char *argv[]){
     //mode->min_run = atoi(argv[4]);
 
     // 4: leaves
-    int leaf_num = atoi(argv[5]);
+    int leaf_num = 128;
 
-    unsigned long mem_upper_limit = 1024ul * 1024ul * 1024ul * 10; // default to 10GiB
+    unsigned long mem_upper_limit = 1024ul * 1024ul * 1024ul * 2; // default to 10GiB
 
-    // end temporary parameters
-
+    		// end temporary parameters
+				printf("Config finalizada\n");
 #ifdef FIXED_TREE
+
     unsigned long max_mem = mem_upper_limit / (leaf_num * 2 - 1);
 
     unsigned long root_bf_size = (unsigned long) pow(2, (unsigned long) log2(max_mem));
@@ -109,15 +115,17 @@ int main(int argc, char *argv[]){
     BLOOMFILTER_TREE *tree = init_fixed_bf_tree(leaf_num, root_bf_size);
 
     mode->fixed = true;
+
 #else
 
     unsigned long max_mem = mem_upper_limit / ( log2(leaf_num) + 1 );
 
     unsigned long root_bf_size = (unsigned long) pow(2, (unsigned long) log2(max_mem));
-//    if ( root_bf_size > MAX_BF_SIZE_IN_BYTES )
-//        root_bf_size = MAX_BF_SIZE_IN_BYTES;
+		//    if ( root_bf_size > MAX_BF_SIZE_IN_BYTES )
+		//        root_bf_size = MAX_BF_SIZE_IN_BYTES;
 
     BLOOMFILTER_TREE *tree = init_variable_bf_tree(leaf_num, root_bf_size);
+
 #endif
 
 #ifdef LOGGING
@@ -127,7 +135,6 @@ int main(int argc, char *argv[]){
 
     // start timing
     clock_t build_tic = clock();
-
     add_path_to_bf_tree(tree, tree_dirname);
 
 #ifdef FIXED_TREE
@@ -210,4 +217,5 @@ int main(int argc, char *argv[]){
     }*/
 
     destroy_bf_tree(tree);
+		return 0;
 }

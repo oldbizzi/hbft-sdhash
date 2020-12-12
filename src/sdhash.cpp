@@ -24,13 +24,15 @@
 #include <arpa/inet.h>
 #include<boost/cstdint.hpp>
 
-//#include "../header/main.h"
-//#include "../header/bloomfilter.h"
-//#include "../header/main.h"
-//#include "../header/sdhash.h"
-//#include "../header/hashing.h"
-//#include "../header/helper.h"
-//#include "../header/fnv.h"
+//novo
+extern "C"
+{
+#include "../header/config.h"
+#include "../header/filehash.h"
+#include "../header/helper.h"
+}
+
+extern "C" FILE_HASH SDHASH_H(FILE_CONTENTS *fc);
 
 #include <boost/multiprecision/cpp_int.hpp>
 
@@ -279,7 +281,7 @@ void gen_chunk_scores( const uint16_t *chunk_ranks, const uint64_t chunk_size, u
             }
             }
         }
-void gen_chunk_hash( uint8_t *file_buffer, const uint64_t chunk_pos, const uint16_t *chunk_scores, const uint64_t chunk_size,BLOOMFILTER *bf, int doWhat) {
+void gen_chunk_hash( uint8_t *file_buffer, const uint64_t chunk_pos, const uint16_t *chunk_scores, const uint64_t chunk_size,FILE_CONTENTS *fc, FILE_HASH *fh) {
     uint64_t i;
     unsigned int sha1_hash[5];
     results_summary[0] = 0,results_summary[1]=0,results_summary[2] = 0, results_summary[3] = 0;
@@ -294,38 +296,10 @@ void gen_chunk_hash( uint8_t *file_buffer, const uint64_t chunk_pos, const uint1
                     // sintaxe sha1: sha1(input,tamanho,saida);
                     //fixed hash size input of 64 bits
 
-
                     SHA1(file_buffer + chunk_pos + i, pop_win_size, (uint8_t *)sha1_hash);
-
-                   /* for (int i = 0; i < 5; ++i)
-                       printf("%X",sha1_hash[i]);
-                    printf("\n");*/
-/*
-                    switch(doWhat){
-                        case 1:
-                            add_hash_to_bloomfilter(bf, sha1_hash, cbf);
-                        case 2:
-                            createResultsSummary(bf,sha1_hash,results_summary);
-                        default:
-                            #remove_hash_from_filter(bf, (unsigned int*)sha1_hash, cbf);
-                    }*/
-
-  /*                  if(doWhat == 1){ // this is used when we are creating the bf, option -g
-                        add_hash_to_bloomfilter(bf, sha1_hash, cbf); // adding the feature to the bf
                     }
-                    else if(doWhat == 2){ // used when we are checking a file againt a filter created previously
-                        createResultsSummary(bf,sha1_hash,results_summary);
-                    }
-                    else{
-                        remove_hash_from_filter(bf, (unsigned int*)sha1_hash, cbf); // used in case of feature removal
-                    }*/
-
-
-                    }
-            //last_block_index = i + 1;
             }
         }
-       // printf("%d %d %d %d \n",results_summary[0],results_summary[1],results_summary[2],results_summary[3]);
     }
 
 
@@ -339,7 +313,7 @@ void gen_block_sdbf_mt( uint8_t *file_buffer, uint64_t file_size, uint64_t block
         gen_chunk_ranks( file_buffer+block_size*qt, rem, chunk_ranks, 0);
         }
     }
-void gen_chunk_sdbf( uint8_t *file_buffer, uint64_t file_size, uint64_t chunk_size,BLOOMFILTER *bf, int doWhat){
+void gen_chunk_sdbf( uint8_t *file_buffer, uint64_t file_size, uint64_t chunk_size,FILE_CONTENTS *fc, FILE_HASH *fh){
         //assert( chunk_size > pop_win_size); // aborta caso ocorra oque está descrito entre parenteses
         uint32_t i, k, sum; // declara as variaveis
         int32_t score_histo[66];  // Score histogram
@@ -368,7 +342,7 @@ void gen_chunk_sdbf( uint8_t *file_buffer, uint64_t file_size, uint64_t chunk_si
             }
             //allowed = max_elem-sum;
 
-            gen_chunk_hash( file_buffer, chunk_pos, chunk_scores, chunk_size,bf,doWhat);
+            gen_chunk_hash( file_buffer, chunk_pos, chunk_scores, chunk_size,fc,fh);
 
         }
 
@@ -376,14 +350,14 @@ void gen_chunk_sdbf( uint8_t *file_buffer, uint64_t file_size, uint64_t chunk_si
 
             gen_chunk_ranks( file_buffer+qt*chunk_size, rem, chunk_ranks, 0);
             gen_chunk_scores( chunk_ranks, rem, chunk_scores, 0);
-            gen_chunk_hash( file_buffer, chunk_pos, chunk_scores, rem, bf,doWhat);
+            gen_chunk_hash( file_buffer, chunk_pos, chunk_scores, rem, fc,fh);
         }
 
         free( chunk_ranks);
         free( chunk_scores);
 
         }
-void sdbf( const char *name,std::istream *ifs,uint32_t dd_block_size,uint64_t msize,BLOOMFILTER *bf, int doWhat,unsigned int start){
+void sdbf( const char *name,std::istream *ifs,uint32_t dd_block_size,uint64_t msize,unsigned int start,FILE_CONTENTS *fc, FILE_HASH *fh){
     entr64_table_init_int();
        uint64_t chunk_size; // unsigned int de 64 bits
         uint8_t *bufferinput; // unsigned int de 8 bufferinputits, ponteiro no caso
@@ -402,7 +376,7 @@ void sdbf( const char *name,std::istream *ifs,uint32_t dd_block_size,uint64_t ms
         orig_file_size = chunk_size; // orig_file_size recebe o tamanho do ultimo objeto lido, em chars
 
             if (!dd_block_size) {  // dd_block_size for zero
-            gen_chunk_sdbf(bufferinput,msize, 32*MB,bf,doWhat);
+            gen_chunk_sdbf(bufferinput,msize, 32*MB,fc,fh);
         }
         else { // block mode
 
@@ -428,28 +402,32 @@ void sdbf( const char *name,std::istream *ifs,uint32_t dd_block_size,uint64_t ms
         free(bufferinput);
         }
 
-int *SDHASH_EXT(BLOOMFILTER *bf,
- int doWhat,
- char *filename,
- unsigned int size,
- unsigned int start){
+FILE_HASH *SDHASH_EXT(FILE_CONTENTS *fc){
+    printf("Está entrando no sdhash mesmo\n");
+    // novo
+    FILE_HASH *fh = init_file_hash(); // inicializa o file_hashing
 
-    // the list arg is used to decide whether we are going to use a list or a single file
-    beg = start;
+
+   // 1 - vou receber só o file contents, que tem o tamanho do arquivo,nome, etc
+   // 2 - preciso incluir a structure de file hash e file contents
+   // 3 - a cada hash que eu receber preciso passar para o add_hash_entry, mas antes,passar o hash pelo init_hash_entry (descobrir o q é )
+   // 4 - retornar o file hash
+
     struct stat file_stat;
     ifstream *is = new ifstream();
-    is->open(filename, ios::binary); // temos uma stream binaria, aberta de argv
-    is->seekg(start);
+
+    is->open(fc->filename, ios::binary); // temos uma stream binaria, aberta de argv
+    is->seekg(0);
 
     try{
-        sdbf(filename, is, 0, size,bf,doWhat,start);
+        sdbf(fc->filename, is, 0, fc->filesize, 0,fc,fh);
         }
     catch (int e) {
-        if (e==-2)
-        exit(-2);}
+        if (e == -2)
+        exit(-2);
+      }
 
     is->close();
     delete is;
-
-    return results_summary;
+    return fh;
     }

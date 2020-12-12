@@ -7,10 +7,17 @@
 #ifndef MAIN_H
 #define	MAIN_H
 
+#ifdef __cplusplus
+extern "C"{
+#endif
+
 #include "../header/config.h"
 #include "../header/hashing.h"
 #include "../header/bloomfilter.h"
 #include "../header/bloomfiltertree.h"
+#ifdef __cplusplus
+}
+#endif
 //FILE    *getFileHandle(char *filename);
 int main(int argc, char *argv[]);
 void search_path(BLOOMFILTER_TREE *bft, char *filename);

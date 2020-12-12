@@ -9,10 +9,17 @@
 #include "../header/helper.h"
 #include "../header/config.h"
 
+#ifndef __cplusplus
+#include "../header/sdhash.h"
+#endif
+
 #include <dirent.h>
 #include <stdbool.h>
 #include <math.h>
 #include <unistd.h>
+
+//FILE_HASH *SDHASH_EXT(FILE_CONTENTS *fc);
+FILE_HASH  *SDHASH_EXT(FILE_CONTENTS *fc);
 
 int left(int i) {
     return i * 2;
@@ -166,6 +173,7 @@ bool match(BLOOMFILTER *bf, FILE_HASH *fh) {
  * Param result is for storing the result of the search.
  */
 void find(BLOOMFILTER_TREE *bft, FILE_HASH *fh, int i, int *result) {
+
 #ifdef LOGGING
     printf("Visit %d\n", i);
 #endif
@@ -226,9 +234,13 @@ void print_file(FILE_CONTENTS *fc) {
 }
 
 void hash_file_to_bf(BLOOMFILTER_TREE *bft, int leaf, FILE_CONTENTS *fc) {
-
-    FILE_HASH *fh = hash_file(fc);
-
+    // Ou aqui antes ainda?
+    // Substituir o hash_file pela função do sdhash?
+    //FILE_HASH *fh = hash_file(fc);
+    printf("hash_file_to_bf\n");
+    FILE_HASH *fh = SDHASH_EXT(fc);
+    //printf("passou do sdhash reto?\n");
+    // sdhash entra aqui?
     add_file_hash_to_bf(get_leaf_bf(bft, leaf), fh);
 
 #ifdef FINGERPRINT_LEAVES
@@ -265,8 +277,11 @@ void destroy_bf_tree(BLOOMFILTER_TREE *bft) {
 }
 
 int insert_into_bf_tree(BLOOMFILTER_TREE *bft, FILE_CONTENTS *fc) {
+    printf("insert_into_bf_tree\n");
     int index = bft->next_insert;
+
     hash_file_to_bf(bft, index, fc);
+
     bft->next_insert = (bft->next_insert + 1) % leaves(bft);
     return index;
 }
@@ -363,6 +378,7 @@ void search_path_in_bf_tree(BLOOMFILTER_TREE *bft, char *filename) {
 }
 
 void add_path_to_bf_tree(BLOOMFILTER_TREE *bft, char *filename) {
+    printf("add_path_to_bf_tree\n");
     DIR *dir;
     struct dirent *ent;
     const int max_path_length = 1024;

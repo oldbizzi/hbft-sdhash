@@ -123,6 +123,33 @@ mrsh_hbft/fast:
 	$(MAKE) -f CMakeFiles/mrsh_hbft.dir/build.make CMakeFiles/mrsh_hbft.dir/build
 .PHONY : mrsh_hbft/fast
 
+header/filehash.o: header/filehash.h.o
+
+.PHONY : header/filehash.o
+
+# target to build an object file
+header/filehash.h.o:
+	$(MAKE) -f CMakeFiles/mrsh_hbft.dir/build.make CMakeFiles/mrsh_hbft.dir/header/filehash.h.o
+.PHONY : header/filehash.h.o
+
+header/filehash.i: header/filehash.h.i
+
+.PHONY : header/filehash.i
+
+# target to preprocess a source file
+header/filehash.h.i:
+	$(MAKE) -f CMakeFiles/mrsh_hbft.dir/build.make CMakeFiles/mrsh_hbft.dir/header/filehash.h.i
+.PHONY : header/filehash.h.i
+
+header/filehash.s: header/filehash.h.s
+
+.PHONY : header/filehash.s
+
+# target to generate assembly for a file
+header/filehash.h.s:
+	$(MAKE) -f CMakeFiles/mrsh_hbft.dir/build.make CMakeFiles/mrsh_hbft.dir/header/filehash.h.s
+.PHONY : header/filehash.h.s
+
 src/bloomfilter.o: src/bloomfilter.c.o
 
 .PHONY : src/bloomfilter.o
@@ -339,32 +366,32 @@ src/helper.c.s:
 	$(MAKE) -f CMakeFiles/mrsh_hbft.dir/build.make CMakeFiles/mrsh_hbft.dir/src/helper.c.s
 .PHONY : src/helper.c.s
 
-src/main.o: src/main.c.o
+src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
 
 # target to build an object file
-src/main.c.o:
-	$(MAKE) -f CMakeFiles/mrsh_hbft.dir/build.make CMakeFiles/mrsh_hbft.dir/src/main.c.o
-.PHONY : src/main.c.o
+src/main.cpp.o:
+	$(MAKE) -f CMakeFiles/mrsh_hbft.dir/build.make CMakeFiles/mrsh_hbft.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
 
-src/main.i: src/main.c.i
+src/main.i: src/main.cpp.i
 
 .PHONY : src/main.i
 
 # target to preprocess a source file
-src/main.c.i:
-	$(MAKE) -f CMakeFiles/mrsh_hbft.dir/build.make CMakeFiles/mrsh_hbft.dir/src/main.c.i
-.PHONY : src/main.c.i
+src/main.cpp.i:
+	$(MAKE) -f CMakeFiles/mrsh_hbft.dir/build.make CMakeFiles/mrsh_hbft.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
 
-src/main.s: src/main.c.s
+src/main.s: src/main.cpp.s
 
 .PHONY : src/main.s
 
 # target to generate assembly for a file
-src/main.c.s:
-	$(MAKE) -f CMakeFiles/mrsh_hbft.dir/build.make CMakeFiles/mrsh_hbft.dir/src/main.c.s
-.PHONY : src/main.c.s
+src/main.cpp.s:
+	$(MAKE) -f CMakeFiles/mrsh_hbft.dir/build.make CMakeFiles/mrsh_hbft.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
 
 src/sdhash.o: src/sdhash.cpp.o
 
@@ -402,6 +429,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... mrsh_hbft"
 	@echo "... edit_cache"
+	@echo "... header/filehash.o"
+	@echo "... header/filehash.i"
+	@echo "... header/filehash.s"
 	@echo "... src/bloomfilter.o"
 	@echo "... src/bloomfilter.i"
 	@echo "... src/bloomfilter.s"

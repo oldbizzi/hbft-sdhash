@@ -19,6 +19,8 @@ fingerprintList.h
 /home/bizzi/IC/mrsh-hbft-master/header/fingerprintList.h
 config.h
 /home/bizzi/IC/mrsh-hbft-master/header/config.h
+sdhash.h
+/home/bizzi/IC/mrsh-hbft-master/header/sdhash.h
 
 /home/bizzi/IC/mrsh-hbft-master/header/config.h
 
@@ -80,6 +82,14 @@ stdint.h
 ../header/bloomfiltertree.h
 /home/bizzi/IC/mrsh-hbft-master/header/bloomfiltertree.h
 
+/home/bizzi/IC/mrsh-hbft-master/header/sdhash.h
+filehash.h
+/home/bizzi/IC/mrsh-hbft-master/header/filehash.h
+helper.h
+/home/bizzi/IC/mrsh-hbft-master/header/helper.h
+config.h
+/home/bizzi/IC/mrsh-hbft-master/header/config.h
+
 /home/bizzi/IC/mrsh-hbft-master/src/bloomfilter.c
 stdio.h
 -
@@ -107,6 +117,8 @@ stdlib.h
 /home/bizzi/IC/mrsh-hbft-master/header/helper.h
 ../header/config.h
 /home/bizzi/IC/mrsh-hbft-master/header/config.h
+../header/sdhash.h
+/home/bizzi/IC/mrsh-hbft-master/header/sdhash.h
 dirent.h
 -
 stdbool.h
@@ -221,30 +233,4 @@ limits.h
 /home/bizzi/IC/mrsh-hbft-master/header/config.h
 ../header/helper.h
 /home/bizzi/IC/mrsh-hbft-master/header/helper.h
-
-/home/bizzi/IC/mrsh-hbft-master/src/main.c
-../header/bloomfilter.h
-/home/bizzi/IC/mrsh-hbft-master/header/bloomfilter.h
-../header/bloomfiltertree.h
-/home/bizzi/IC/mrsh-hbft-master/header/bloomfiltertree.h
-../header/helper.h
-/home/bizzi/IC/mrsh-hbft-master/header/helper.h
-../header/hashing.h
-/home/bizzi/IC/mrsh-hbft-master/header/hashing.h
-../header/fingerprintList.h
-/home/bizzi/IC/mrsh-hbft-master/header/fingerprintList.h
-../header/fingerprint.h
-/home/bizzi/IC/mrsh-hbft-master/header/fingerprint.h
-../header/config.h
-/home/bizzi/IC/mrsh-hbft-master/header/config.h
-unistd.h
--
-time.h
--
-stdlib.h
--
-dirent.h
--
-math.h
--
 

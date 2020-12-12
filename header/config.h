@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   config.h
  *
  * Created on 1. Mai 2012, 12:15
@@ -11,7 +11,7 @@
 
 // define LOGGING to enable logging information (printed to stdout)
 #define LOGGING                 // enable logging (relatively verbose!)
-//#define FIXED_TREE              // enable fixed-sized tree (variable otherwise)
+#define FIXED_TREE              // enable fixed-sized tree (variable otherwise)
 #define FINGERPRINT_LEAVES      // enable/disable calculation of fingerprints at leaves and linear searching.
 
 #define ROLLING_WINDOW          7
@@ -38,14 +38,17 @@
 
 #define THRESHOLD               1   // how similar do fingerprints need to be?
 
-typedef unsigned long long  uint64; 
+typedef unsigned long long  uint64;
 typedef unsigned char       uchar;
 typedef unsigned int        uint32;
 typedef unsigned short      ushort16;
 typedef unsigned int		uint256[8];
 typedef unsigned long long  uint256r[5];
 
+#ifndef __cplusplus // Change: isso parece fazer com que só declare se for em c e não em c++, mas cuidado, lembrar disso
 typedef short bool;
+#endif
+
 #define true 1
 #define false 0
 
@@ -72,4 +75,3 @@ extern MODES *mode; //= {.compare = false}
 
 
 #endif	/* CONFIG_H */
-
