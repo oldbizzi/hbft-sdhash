@@ -51,13 +51,17 @@ void destroy_bf(BLOOMFILTER *bf) {
  * adds a hash value (eg. FNV) to the Bloom filter
  */
 void add_hash_to_bloomfilter(BLOOMFILTER *bf, uint256 hash_val) {
-
+//    printf("ponteiro = %p\n",hash_val[0]);
+    //printf("No add hash::");
+    //for(int as = 0; as < sizeof(hash_val); as++)printf("%d: %X",as,hash_val[as]);
+    //printf("\n");
 
     uint64 masked_bits, byte_pos;
     short bit_pos;
     unsigned char *test = hash_val;
     uint64 *p = hash_val;
     uint64 tmpHash = (((uint64) hash_val[1] << 32) ^ hash_val[0]);
+
     // problema na hora de acessar hash_val
 
     //add the hash value to the bloom filter
@@ -78,9 +82,9 @@ void add_hash_to_bloomfilter(BLOOMFILTER *bf, uint256 hash_val) {
         p = &test[bf->shiftops * (j + 1) / 8];
         tmpHash = *p >> ((bf->shiftops * (j + 1)) % 8);
     }
-
     //count blocks / elements that are inserted
     bf->amount_of_blocks++;
+
 }
 
 

@@ -29,20 +29,28 @@ void print_file_hash(FILE_HASH *fh) {
 }
 
 void destroy_hash_entry(HASH_ENTRY *he) {
-    free(he->value);
+  //printf("freed\n");
+    //if((he->value != NULL) && (he != NULL)){
+  //    printf("%p\n",he->value);
+  //  free(he->value); //erro- no free de memória!
     free(he);
+//    }
 }
 
 void destroy_file_hash(FILE_HASH *fh) {
+
     HASH_ENTRY *he = fh->first_hash;
     HASH_ENTRY *next;
+
     while (he != NULL) {
         next = he->next_entry;
         destroy_hash_entry(he);
+        //printf("Aasdasdasda\n");
         he = next;
     }
     if (fh->fingerprint != NULL)
         destroy_fingerprint(fh->fingerprint);
+
 }
 
 void hash_file_to_fingerprint(FINGERPRINT *fp, FILE_HASH *fh) {
@@ -94,16 +102,20 @@ HASH_ENTRY *init_hash_entry(uint256 *hash_value, int position) {
         fprintf(stderr, "Failed to initialised hash entry.\n");
         exit(1);
     }
-
+    //printf("no hash entry:");
+  //  for(int r = 0; r < 5; r++)    printf("%X",hash_value[r]);
     he->value = hash_value;
     he->position = position;
 
     return he;
 }
 
+
 void add_hash_entry(FILE_HASH *fh, HASH_ENTRY *he) {
+
     if (fh->size == 0)
         fh->first_hash = he;
+
     else
         fh->last_hash->next_entry = he;
     fh->last_hash = he;

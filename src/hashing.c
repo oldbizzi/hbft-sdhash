@@ -109,8 +109,12 @@ FILE_HASH *hash_file( FILE_CONTENTS *fc ) {
 
 void add_file_hash_to_bf(BLOOMFILTER *bf, FILE_HASH *fh) {
     HASH_ENTRY *he = fh->first_hash;
+
     while ( he != NULL ) {
-        add_hash_to_bloomfilter(bf, he->value);
+      //printf("No add file::");
+        //for(int i = 0; i < 5; i++)printf("%X",(he->value)[i]);
+        //printf("\n");
+        add_hash_to_bloomfilter(bf, &(he->value));
         he = he->next_entry;
     }
     bf->number_of_files++;

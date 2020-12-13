@@ -287,7 +287,7 @@ void gen_chunk_hash( uint8_t *file_buffer, const uint64_t chunk_pos, const uint1
     //results_summary[0] = 0,results_summary[1]=0,results_summary[2] = 0, results_summary[3] = 0;
     int az = 0;
 
-    printf("%s\n",fc->filename);
+
 
     if (chunk_size > pop_win_size) {
         for( i=0; i<chunk_size-pop_win_size; i++) {
@@ -302,18 +302,22 @@ void gen_chunk_hash( uint8_t *file_buffer, const uint64_t chunk_pos, const uint1
                     //fixed hash size input of 64 bits
 
                     SHA1(file_buffer + chunk_pos + i, pop_win_size, (uint8_t *)sha1_hash);
-
-                    //for(int r = 0; r< 5; r++) printf("%X\n",sha1_hash[r]);
+                    //printf("SHA1 = ");
+                    //for(int r = 0; r< 5; r++) printf("%X",sha1_hash[r]);
                     //printf("\n");
 
                     // A partir de agora decido o que vai ser feito, adcionado, ou oq
 
                     add_hash_entry(fh, init_hash_entry(*sha1_hash, i));
+                    //printf("\nfile hash já = ");
+                      //for(int r = 0;r < 5;r++) printf("%X",((fh->last_hash)->value)[r]);
+                      //printf("\n");
 
                     }
 
             }
         }
+
     }
 
 
@@ -417,9 +421,7 @@ void sdbf( const char *name,std::istream *ifs,uint32_t dd_block_size,uint64_t ms
         }
 
 extern FILE_HASH *SDHASH_EXT(FILE_CONTENTS *fc){
-    printf("Está entrando no sdhash mesmo\n");
-    // novo
-    printf("%d\n",fc->filesize);
+
     FILE_HASH *fh = init_file_hash(); // inicializa o file_hashing
 
 
@@ -442,8 +444,21 @@ extern FILE_HASH *SDHASH_EXT(FILE_CONTENTS *fc){
         exit(-2);
       }
 
+      // Cópia dos nomes e tamanhos dos arquivos bonitinho!
+      fh->filesize = fc->filesize;
+      fh->filename = malloc( (1 + strlen( fc->filename)) * sizeof(char));
+      if ( fh->filename == NULL ) {
+          fprintf( stderr, "Failed to allocate file name space.");
+          exit(1);
+      }
+      strcpy(fh->filename, fc->filename);
+    // Erro no add_hash_to_bloomfilter, não reconhece o valor do hash???
+    //printf("\\\\\\\\\\\\\\\\\\\\\\n");
+    //for(int r = 0;r < 5;r++) printf("hash no sdhash %X\n",fh->first_hash->value[r]);
+    //printf("initial %p\n",fh->first_hash);
+    //printf("last %p\n",fh->last_hash);
+
     is->close();
     delete is;
-
     return fh;
     }

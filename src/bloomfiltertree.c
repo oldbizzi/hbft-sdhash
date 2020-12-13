@@ -237,11 +237,12 @@ void hash_file_to_bf(BLOOMFILTER_TREE *bft, int leaf, FILE_CONTENTS *fc) {
     // Ou aqui antes ainda?
     // Substituir o hash_file pela função do sdhash?
     //FILE_HASH *fh = hash_file(fc);
-    printf("hash_file_to_bf\n");
+    //printf("hash_file_to_bf\n");
     FILE_HASH *fh = SDHASH_EXT(fc);
     //printf("passou do sdhash reto?\n");
     // sdhash entra aqui?
     add_file_hash_to_bf(get_leaf_bf(bft, leaf), fh);
+    //printf("aaaa\n");
 
 #ifdef FINGERPRINT_LEAVES
     add_new_fingerprint(bft->fpls[leaf], init_fingerprint_for_file(fh));
@@ -257,9 +258,11 @@ void hash_file_to_bf(BLOOMFILTER_TREE *bft, int leaf, FILE_CONTENTS *fc) {
             current = parent(current);
         }
     }
-
+  //  printf("aaaaaend of file\n");
     destroy_file_hash(fh);
+
 }
+
 
 void destroy_bf_tree(BLOOMFILTER_TREE *bft) {
 
@@ -277,12 +280,13 @@ void destroy_bf_tree(BLOOMFILTER_TREE *bft) {
 }
 
 int insert_into_bf_tree(BLOOMFILTER_TREE *bft, FILE_CONTENTS *fc) {
-    printf("insert_into_bf_tree\n");
+    //printf("insert_into_bf_tree\n");
     int index = bft->next_insert;
 
     hash_file_to_bf(bft, index, fc);
 
     bft->next_insert = (bft->next_insert + 1) % leaves(bft);
+    //printf("ended insertion\n");
     return index;
 }
 
@@ -378,7 +382,8 @@ void search_path_in_bf_tree(BLOOMFILTER_TREE *bft, char *filename) {
 }
 
 void add_path_to_bf_tree(BLOOMFILTER_TREE *bft, char *filename) {
-    printf("add_path_to_bf_tree\n");
+
+    //printf("add_path_to_bf_tree\n");
     DIR *dir;
     struct dirent *ent;
     const int max_path_length = 1024;
@@ -395,6 +400,7 @@ void add_path_to_bf_tree(BLOOMFILTER_TREE *bft, char *filename) {
         //run through all files of the dir
         while ((ent = readdir(dir)) != NULL) {
             //if we found a file, generate hash value and add it
+            //printf("\nwhile\n");
             if (is_file(ent->d_name)) {
                 add_path_to_bf_tree(bft, ent->d_name);
             } else if (is_dir(ent->d_name)) {
@@ -407,7 +413,9 @@ void add_path_to_bf_tree(BLOOMFILTER_TREE *bft, char *filename) {
     } else if (is_file(filename)) {
         FILE_CONTENTS *fc = read_file(filename);
         if (fc != NULL) {
+          //  printf("inserindo %s\n",fc->filename);
             int leaf = insert_into_bf_tree(bft, fc);
+          //  printf("\nend of insertion\m");
 #ifdef LOGGING
             printf("Added [%s] to leaf [%d]\n", filename, leaf);
 #endif
@@ -419,4 +427,5 @@ void add_path_to_bf_tree(BLOOMFILTER_TREE *bft, char *filename) {
         }
 #endif
     }
+//printf("\n eof\n");
 }

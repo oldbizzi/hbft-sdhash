@@ -12,7 +12,7 @@
 // define LOGGING to enable logging information (printed to stdout)
 #define LOGGING                 // enable logging (relatively verbose!)
 #define FIXED_TREE              // enable fixed-sized tree (variable otherwise)
-#define FINGERPRINT_LEAVES      // enable/disable calculation of fingerprints at leaves and linear searching.
+//#define FINGERPRINT_LEAVES      // enable/disable calculation of fingerprints at leaves and linear searching.
 
 #define ROLLING_WINDOW          7
 //#define BLOCK_SIZE              320 // mrsh_net is 64, mrsh_v2 is 160
