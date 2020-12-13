@@ -325,10 +325,12 @@ void gen_block_sdbf_mt( uint8_t *file_buffer, uint64_t file_size, uint64_t block
     // Deal with the "tail" if necessary
     uint64_t qt = file_size/block_size;
     uint64_t rem = file_size % block_size;
+
     if( rem >= MIN_FILE_SIZE) {
         uint16_t *chunk_ranks = (uint16_t *)alloc_check( ALLOC_ONLY, (block_size)*sizeof( uint16_t), "gen_block_sdbf_mt", "chunk_ranks", ERROR_EXIT);
         //uint16_t *chunk_scores = (uint16_t *)alloc_check( ALLOC_ZERO, (block_size)*sizeof( uint16_t), "gen_block_sdbf_mt", "chunk_scores", ERROR_EXIT);
         gen_chunk_ranks( file_buffer+block_size*qt, rem, chunk_ranks, 0);
+
         }
     }
 void gen_chunk_sdbf( uint8_t *file_buffer, uint64_t file_size, uint64_t chunk_size,FILE_CONTENTS *fc, FILE_HASH *fh){
@@ -386,10 +388,11 @@ void sdbf( const char *name,std::istream *ifs,uint32_t dd_block_size,uint64_t ms
 
         chunk_size = ifs->gcount(); // retorna a qtdade de caracteres extraidos do ultimo objeto lido, no caso buffer input
         if (chunk_size < MIN_FILE_SIZE){ // se for menor que o tamanho de MIN_FILE_SIZE
-
+        //    printf("%s is too small, can't insert\n",fc->filename);
             free(bufferinput); // libera o espaço alocado por buffer input
             throw -3; // too small, diminui throw
         }
+      //  printf("Continued\n");
         sdbf_create(name);
         orig_file_size = chunk_size; // orig_file_size recebe o tamanho do ultimo objeto lido, em chars
 

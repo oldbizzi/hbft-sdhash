@@ -54,21 +54,25 @@ void destroy_file_hash(FILE_HASH *fh) {
 }
 
 void hash_file_to_fingerprint(FINGERPRINT *fp, FILE_HASH *fh) {
+
     BLOOMFILTER *last_bf = fp->bf_list_last_element;
     HASH_ENTRY *he = fh->first_hash;
-    while (he != NULL) {
 
+    while (he != NULL) {
+      //printf("%d\n",last_bf->amount_of_blocks);
         if (last_bf->amount_of_blocks == MAXBLOCKS) {
             BLOOMFILTER *new_bf = init_empty_BF(BLOOMFILTER_SIZE_FILE);
             add_new_bloomfilter(fp, new_bf);
             last_bf = new_bf;
         }
 
-        add_hash_to_bloomfilter(last_bf, he->value);
+        add_hash_to_bloomfilter(last_bf, &(he->value));
+      //  printf("Hashed to fp\n");
 
         he = he->next_entry;
     }
 }
+
 
 /**
  *
@@ -76,6 +80,7 @@ void hash_file_to_fingerprint(FINGERPRINT *fp, FILE_HASH *fh) {
  * returns NULL if it is not able to create the bloom filter,
  * else the allocated FINGERPRINT struct
  * */
+
 FINGERPRINT *init_fingerprint_for_file(FILE_HASH *fh) {
     FINGERPRINT *fp = init_empty_fingerprint();
     fp->filesize = fh->filesize;

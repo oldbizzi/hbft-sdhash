@@ -97,11 +97,14 @@ int main(int argc, char *argv[]){
     //initalizeDefaultModes(atoi(argv[3]), atoi(argv[4]));
 		initalizeDefaultModes(64, 6);
 
+	#ifndef FIXED_TREE
 
+			//printf("Árvore variável agora\n");
+	#endif
 		char *tree_dirname = "./header";
 
     // temporary parameters
-    char *search_dirname = "./src";
+    char *search_dirname = "./header";
 
     // 2: block size (in bytes)
     // mode->block_size = atoi(argv[3]);
@@ -110,12 +113,12 @@ int main(int argc, char *argv[]){
     //mode->min_run = atoi(argv[4]);
 
     // 4: leaves
-    int leaf_num = 128;
+    int leaf_num = 16;
 
     unsigned long mem_upper_limit = 1024ul * 1024ul * 1024ul * 2; // default to 10GiB
 
     		// end temporary parameters
-				printf("Config finalizada\n");
+			//	printf("Config finalizada\n");
 #ifdef FIXED_TREE
 
     unsigned long max_mem = mem_upper_limit / (leaf_num * 2 - 1);
@@ -139,7 +142,7 @@ int main(int argc, char *argv[]){
 #endif
 
 #ifdef LOGGING
-    printf( "Upper memory limit: %lu\n", mem_upper_limit);
+    printf("Upper memory limit: %lu\n", mem_upper_limit);
     printf("Config BLOCK_SIZE %d\nConfig MIN_RUN %d\nConfig LEAF_NUM %d\nConfig BF_SIZE %lu\nConfig FIXED %s\n", mode->block_size, mode->min_run, leaf_num, root_bf_size, mode->fixed ? "true" : "false");
 #endif
 
@@ -151,23 +154,23 @@ int main(int argc, char *argv[]){
     build_bf_tree(tree);
 #endif
     clock_t build_toc = clock();
-/* -----------------------------
 
 #ifdef LOGGING
     for ( int i = 1; i < tree->size; i++ ) {
-        printf("Fullness %d %f\n", i, fullness(tree->data[i]));
-        printf("Files %d (%lu bytes)\n", tree->data[i]->number_of_files, tree->data[i]->bytes);
+        //printf("Fullness %d %f\n", i, fullness(tree->data[i]));
+        //printf("Files %d (%lu bytes)\n", tree->data[i]->number_of_files, tree->data[i]->bytes);
     }
 #endif
-
     clock_t search_tic = clock();
     search_path_in_bf_tree(tree, search_dirname);
     clock_t search_toc = clock();
+		//printf("ABCDE\n");
 
 #ifdef LOGGING
     printf("Build Time: %f seconds\nSearch Time: %f seconds\n", (double) (build_toc - build_tic) / CLOCKS_PER_SEC,
            (double) (search_toc - search_tic) / CLOCKS_PER_SEC);
 #endif
+		destroy_bf_tree(tree);
 
 //    for ( int i = 0; i < leaf_num; i++ )
 //       printf( "Fill: %d %f\n", i, fullness(get_leaf_bf(tree, i)));
@@ -200,6 +203,7 @@ int main(int argc, char *argv[]){
 //    printf("%d\n", fingerprint_compare(fp, fp2));
 
 
+printf("A\n");
 
 
     int leaf_num = 1;
@@ -225,8 +229,7 @@ int main(int argc, char *argv[]){
 
     for( int i = 0; i < leaf_num; i++ ) {
         printf("%d: %d %d\n", i, result[i], count_ones(get_leaf_bf(tree, i)));
-    }*   / ------ arrumar aqui, o comentário vai até aqi
--------------------------- meu */
-    destroy_bf_tree(tree);
+    } */// ------ arrumar aqui, o comentário vai até aqi
+
 		return 0;
 }

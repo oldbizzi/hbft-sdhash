@@ -154,7 +154,7 @@ bool match(BLOOMFILTER *bf, FILE_HASH *fh) {
         if (is_first && SKIP_FIRST) {
             is_first = false;
         } else {
-            if (is_in_bloom(bf, he->value))
+            if (is_in_bloom(bf, &(he->value)))
                 hits++;
             else
                 hits = 0;
@@ -175,10 +175,11 @@ bool match(BLOOMFILTER *bf, FILE_HASH *fh) {
 void find(BLOOMFILTER_TREE *bft, FILE_HASH *fh, int i, int *result) {
 
 #ifdef LOGGING
-    printf("Visit %d\n", i);
+    //printf("Visit %d\n", i);
 #endif
 
     if (match(bft->data[i], fh)) {
+      //printf("1st\n");
         if (is_leaf(bft, i)) {
 #ifdef FINGERPRINT_LEAVES
             // fingerprint comparison (lazy loading)
@@ -189,7 +190,7 @@ void find(BLOOMFILTER_TREE *bft, FILE_HASH *fh, int i, int *result) {
 #endif
 
 #ifdef LOGGING
-            printf("Leaf %d\n", i - bft->size / 2);
+      //      printf("Leaf %d\n", i - bft->size / 2);
 #endif
             result[i - bft->size / 2] = true;
         } else {
@@ -200,7 +201,7 @@ void find(BLOOMFILTER_TREE *bft, FILE_HASH *fh, int i, int *result) {
 }
 
 int *search(BLOOMFILTER_TREE *bft, FILE_CONTENTS *fc) {
-
+  //printf("AAAAAAAAAAAH\n");
 #ifdef LOGGING
     printf("----------------\nSearching for [%s]\n", fc->filename);
 #endif
@@ -211,9 +212,13 @@ int *search(BLOOMFILTER_TREE *bft, FILE_CONTENTS *fc) {
 
     if (bft->type == VARIABLE || bft->built) {
         int *result = calloc(bft->size / 2, sizeof(int));
-        FILE_HASH *fh = hash_file(fc);
+        //FILE_HASH *fh = hash_file(fc);
+        FILE_HASH *fh = SDHASH_EXT(fc);
+        //for(int r = 0; r < 5 ;r++) printf("%X",((fh->last_hash)->value)[r]);
+
         find(bft, fh, 1, result);
         destroy_file_hash(fh);
+        //printf("\nfinished\n");
         return result;
     } else {
         fprintf(stderr, "Cannot search unbuilt Bloom Filter tree: you must call build() first.");
@@ -245,6 +250,7 @@ void hash_file_to_bf(BLOOMFILTER_TREE *bft, int leaf, FILE_CONTENTS *fc) {
     //printf("aaaa\n");
 
 #ifdef FINGERPRINT_LEAVES
+//printf("fpl\n");
     add_new_fingerprint(bft->fpls[leaf], init_fingerprint_for_file(fh));
 #endif
 
@@ -372,7 +378,8 @@ void search_path_in_bf_tree(BLOOMFILTER_TREE *bft, char *filename) {
         FILE_CONTENTS *fc = read_file(filename);
         if ( fc != NULL ) {
             int *result = search(bft, fc);
-            free(result); //TODO: don't use it for now, just prevent memory leak
+            //printf("results = %X\n",&result[0]);
+            //free(result); //TODO: don't use it for now, just prevent memory leak
             destroy_file_contents(fc);
 #ifdef LOGGING
             printf("Searched for [%s]\n", filename);

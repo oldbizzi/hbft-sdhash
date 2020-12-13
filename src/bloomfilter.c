@@ -96,7 +96,7 @@ short is_in_bloom(BLOOMFILTER *bf, uint256 hash_val) {
 //        printf("%08x", *(v++));
 //    }
 //    printf("\n");
-
+  
     uint64 masked_bits, byte_pos;
     short bit_pos;
     unsigned char *test = hash_val;
