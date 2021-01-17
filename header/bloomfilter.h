@@ -27,6 +27,8 @@ typedef struct BLOOMFILTER{
 
     unsigned long mask;
 
+    char *file_name; // usado apenas nos filtros das folhas para salvar o nome do arquivo que está ali
+
     // Pointer to next Bloomfilter (if used as a list)
     struct BLOOMFILTER *next_filter;
 

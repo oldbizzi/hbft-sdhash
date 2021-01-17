@@ -108,7 +108,11 @@ int main(int argc, char *argv[]){
 
 
     unsigned long mem_upper_limit = 1024ul * 1024ul * 1024ul * 2; // default to 10GiB
+
+// Change: para o novo tamanho de filtro com base no tamanho da base
+
 #ifdef NEW_SIZE
+
 			unsigned long filter_size = BF_SIZE;
 			unsigned long root_bf_size = (unsigned long) pow(2, (unsigned long) log2(filter_size));
 			BLOOMFILTER_TREE *tree = init_variable_bf_tree(leaf_num, root_bf_size);

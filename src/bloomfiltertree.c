@@ -150,7 +150,8 @@ bool match(BLOOMFILTER *bf, FILE_HASH *fh) {
     bool is_first = true;
     HASH_ENTRY *he = fh->first_hash;
 
-    while (he != NULL && hits < mode->min_run) {
+    //while (he != NULL && hits < mode->min_run) {
+    while (he != NULL && hits < MIN_RUN) {
         if (is_first && SKIP_FIRST) {
             is_first = false;
         } else {
@@ -161,7 +162,7 @@ bool match(BLOOMFILTER *bf, FILE_HASH *fh) {
             he = he->next_entry;
         }
     }
-    return hits == mode->min_run;
+    return hits == MIN_RUN;
 }
 
 /*
@@ -193,8 +194,12 @@ void find(BLOOMFILTER_TREE *bft, FILE_HASH *fh, int i, int *result) {
 #ifdef LOGGING
       //      printf("Leaf %d\n", i - bft->size / 2);
 #endif
-            printf("tamanho dos nós folha:%u\n",get_leaf_bf(bft,i - bft->size/2)->size);
+            //printf("tamanho dos nós folha:%u\n",get_leaf_bf(bft,i - bft->size/2)->size); habilite para printar o tamanho das folhas
+
             result[i - bft->size / 2] = true;
+            printf("%s|%s|6\n",fh->filename,get_leaf_bf(bft,i - bft->size/2)->file_name);
+
+
         } else {
             find(bft, fh, left(i), result);
             find(bft, fh, right(i), result);
@@ -241,15 +246,22 @@ void print_file(FILE_CONTENTS *fc) {
 }
 
 void hash_file_to_bf(BLOOMFILTER_TREE *bft, int leaf, FILE_CONTENTS *fc) {
-    // Ou aqui antes ainda?
-    // Substituir o hash_file pela função do sdhash?
+
     //FILE_HASH *fh = hash_file(fc);
-    //printf("hash_file_to_bf\n");
+
     FILE_HASH *fh = SDHASH_EXT(fc);
-    //printf("passou do sdhash reto?\n");
-    // sdhash entra aqui?
+
+    // Acrescentei isso pra ter o nome do arquivo inserido no filtro de bloom
+    get_leaf_bf(bft,leaf)->file_name = malloc(sizeof(char) * (strlen(fc->filename) + 1));
+    if (get_leaf_bf(bft,leaf)->file_name == NULL) {
+        fprintf(stderr, "Failed to allocate file name for FILE_CONTENTS\n");
+        exit(1);
+    }
+    strcpy(get_leaf_bf(bft,leaf)->file_name, fc->filename);
+
     add_file_hash_to_bf(get_leaf_bf(bft, leaf), fh);
-    //printf("aaaa\n");
+
+    printf("%s\n",get_leaf_bf(bft,leaf)->file_name);
 
 #ifdef FINGERPRINT_LEAVES
 //printf("fpl\n");
