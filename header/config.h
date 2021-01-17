@@ -8,7 +8,8 @@
 #define	CONFIG_H
 
 #define MAX_BF_SIZE_IN_BYTES 1073741824
-#define BF_SIZE 33554432  // bytes
+#define BF_SIZE /*134217728*/ 33554432  // bytes
+
 // define LOGGING to enable logging information (printed to stdout)
 //#define LOGGING                 // enable logging (relatively verbose!)
 //#define FIXED_TREE              // enable fixed-sized tree (variable otherwise)

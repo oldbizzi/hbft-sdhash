@@ -97,14 +97,13 @@ int main(int argc, char *argv[]){
     //mode = malloc(sizeof(MODES));
     //initalizeDefaultModes(atoi(argv[3]), atoi(argv[4]));
 		initalizeDefaultModes(64, 6);
-
-		char *tree_dirname = "./src";
-
-    // temporary parameters
-    char *search_dirname = "./src";
+		char *tree_dirname = "../../Databases/cb_known_set";
+		char *search_dirname = "../../Databases/cb_target_set";
+		//char *tree_dirname = "./";
+    //char *search_dirname = "./src";
 
     // 4: leaves
-    int leaf_num = 16;
+    int leaf_num = 8192;
 
 
     unsigned long mem_upper_limit = 1024ul * 1024ul * 1024ul * 2; // default to 10GiB

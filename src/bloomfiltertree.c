@@ -18,6 +18,8 @@
 #include <math.h>
 #include <unistd.h>
 
+int total_de_arquivos = 0;
+
 
 FILE_HASH  *SDHASH_EXT(FILE_CONTENTS *fc); // define a função do sdhash?
 
@@ -260,9 +262,8 @@ void hash_file_to_bf(BLOOMFILTER_TREE *bft, int leaf, FILE_CONTENTS *fc) {
     strcpy(get_leaf_bf(bft,leaf)->file_name, fc->filename);
 
     add_file_hash_to_bf(get_leaf_bf(bft, leaf), fh);
-
-    printf("%s\n",get_leaf_bf(bft,leaf)->file_name);
-
+    //printf("quantidade de features:%u\n",get_leaf_bf(bft, leaf)->amount_of_blocks);
+    //printf("tamanho:%u\n",get_leaf_bf(bft, leaf)->size);
 #ifdef FINGERPRINT_LEAVES
 //printf("fpl\n");
     add_new_fingerprint(bft->fpls[leaf], init_fingerprint_for_file(fh));
@@ -389,6 +390,8 @@ void search_path_in_bf_tree(BLOOMFILTER_TREE *bft, char *filename) {
 
         //in case we we have only a file
     else if (is_file(filename)) {
+        //printf("total = %i\n",total_de_arquivos++);
+
         FILE_CONTENTS *fc = read_file(filename);
         if ( fc != NULL ) {
             int *result = search(bft, fc);
