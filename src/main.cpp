@@ -46,6 +46,7 @@ static void initalizeDefaultModes(int block_size, int min_run){
 /*
 CHANGE: Acrescentei a variável global mode para o resto dos arquivos terem acesso, retirando o antigo arquivo main, essa variável sumia!
 Além disto, coloquei também as declarações de block_size e min_run em uma função, teoricamente não muda nada.
+A variável global não estava sendo alterada então coloquei um define pra isso
 */
 
 
@@ -97,28 +98,23 @@ int main(int argc, char *argv[]){
     //initalizeDefaultModes(atoi(argv[3]), atoi(argv[4]));
 		initalizeDefaultModes(64, 6);
 
-	#ifndef FIXED_TREE
-
-			//printf("Árvore variável agora\n");
-	#endif
-		char *tree_dirname = "./header";
+		char *tree_dirname = "./src";
 
     // temporary parameters
-    char *search_dirname = "./header";
-
-    // 2: block size (in bytes)
-    // mode->block_size = atoi(argv[3]);
-
-    // 3: MIN_RUN
-    //mode->min_run = atoi(argv[4]);
+    char *search_dirname = "./src";
 
     // 4: leaves
     int leaf_num = 16;
 
-    unsigned long mem_upper_limit = 1024ul * 1024ul * 1024ul * 2; // default to 10GiB
 
-    		// end temporary parameters
-			//	printf("Config finalizada\n");
+    unsigned long mem_upper_limit = 1024ul * 1024ul * 1024ul * 2; // default to 10GiB
+#ifdef NEW_SIZE
+			unsigned long filter_size = BF_SIZE;
+			unsigned long root_bf_size = (unsigned long) pow(2, (unsigned long) log2(filter_size));
+			BLOOMFILTER_TREE *tree = init_variable_bf_tree(leaf_num, root_bf_size);
+
+#else
+
 #ifdef FIXED_TREE
 
     unsigned long max_mem = mem_upper_limit / (leaf_num * 2 - 1);
@@ -130,7 +126,6 @@ int main(int argc, char *argv[]){
     mode->fixed = true;
 
 #else
-
     unsigned long max_mem = mem_upper_limit / ( log2(leaf_num) + 1 );
 
     unsigned long root_bf_size = (unsigned long) pow(2, (unsigned long) log2(max_mem));
@@ -138,6 +133,8 @@ int main(int argc, char *argv[]){
 		//        root_bf_size = MAX_BF_SIZE_IN_BYTES;
 
     BLOOMFILTER_TREE *tree = init_variable_bf_tree(leaf_num, root_bf_size);
+
+#endif
 
 #endif
 
@@ -161,10 +158,11 @@ int main(int argc, char *argv[]){
         //printf("Files %d (%lu bytes)\n", tree->data[i]->number_of_files, tree->data[i]->bytes);
     }
 #endif
+
+		// Faz a busca
     clock_t search_tic = clock();
     search_path_in_bf_tree(tree, search_dirname);
     clock_t search_toc = clock();
-		//printf("ABCDE\n");
 
 #ifdef LOGGING
     printf("Build Time: %f seconds\nSearch Time: %f seconds\n", (double) (build_toc - build_tic) / CLOCKS_PER_SEC,

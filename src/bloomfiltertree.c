@@ -180,6 +180,7 @@ void find(BLOOMFILTER_TREE *bft, FILE_HASH *fh, int i, int *result) {
 
     if (match(bft->data[i], fh)) {
       //printf("1st\n");
+
         if (is_leaf(bft, i)) {
 #ifdef FINGERPRINT_LEAVES
             // fingerprint comparison (lazy loading)
@@ -192,6 +193,7 @@ void find(BLOOMFILTER_TREE *bft, FILE_HASH *fh, int i, int *result) {
 #ifdef LOGGING
       //      printf("Leaf %d\n", i - bft->size / 2);
 #endif
+            printf("tamanho dos nós folha:%u\n",get_leaf_bf(bft,i - bft->size/2)->size);
             result[i - bft->size / 2] = true;
         } else {
             find(bft, fh, left(i), result);
