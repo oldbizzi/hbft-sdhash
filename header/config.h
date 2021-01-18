@@ -7,29 +7,35 @@
 #ifndef CONFIG_H
 #define	CONFIG_H
 
-#define MAX_BF_SIZE_IN_BYTES 1073741824
-#define BF_SIZE /*134217728*/ 33554432  // bytes
+// Configurações
 
-// define LOGGING to enable logging information (printed to stdout)
 //#define LOGGING                 // enable logging (relatively verbose!)
 //#define FIXED_TREE              // enable fixed-sized tree (variable otherwise)
 //#define FINGERPRINT_LEAVES      // enable/disable calculation of fingerprints at leaves and linear searching.
 #define NEW_SIZE                // for the new bf size
-#define ROLLING_WINDOW          7
+#define BF_SIZE          33554432  // bytes
+#define SUBHASHES               5 //default is 5
+#define MIN_RUN					        6 // mrsh_net is 8
+#define AUTO_BUILD_BF_TREE      1  // automatically build BF tree as soon as search() is called
+
+
+#define MAX_BF_SIZE_IN_BYTES 1073741824
+
+
 //#define BLOCK_SIZE              320 // mrsh_net is 64, mrsh_v2 is 160
 #define SKIPPED_BYTES           mode->block_size/3 // mrsh_net is BLOCK_SIZE/3, mrsh_v2 is BLOCK_SIZE/4
 #define MIN_ENTROPY				0
+#define ROLLING_WINDOW          7
 
-#define MIN_RUN					6 // mrsh_net is 8
 
 // TODO: this should not be necessary long-term.
-#define BF_SIZE_IN_BYTES		5242880 // 41943040 //33554432 //16384	//Filte 32 MiB
-#define SUBHASHES               5
+//#define BF_SIZE_IN_BYTES		5242880 // 41943040 //33554432 //16384	//Filte 32 MiB
+
 
 #define SKIP_FIRST				1	//Skip first block which often contains header info
 #define SKIP_LAST				1   //Skip last block which often contains footer info
 
-#define AUTO_BUILD_BF_TREE      1  // automatically build BF tree as soon as search() is called
+
 
 // From mrsh_v2 for fingerprinting. Values not changed.
 #define PROBABILITY             0.99951172 //Attention: 1 - ( 1/BLOOMFILTERBITSIZE )

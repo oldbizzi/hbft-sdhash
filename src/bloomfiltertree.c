@@ -199,8 +199,9 @@ void find(BLOOMFILTER_TREE *bft, FILE_HASH *fh, int i, int *result) {
             //printf("tamanho dos nós folha:%u\n",get_leaf_bf(bft,i - bft->size/2)->size); habilite para printar o tamanho das folhas
 
             result[i - bft->size / 2] = true;
+            #ifndef FINGERPRINT_LEAVES
             printf("%s|%s|6\n",fh->filename,get_leaf_bf(bft,i - bft->size/2)->file_name);
-
+            #endif
 
         } else {
             find(bft, fh, left(i), result);

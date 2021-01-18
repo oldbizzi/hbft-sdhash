@@ -167,10 +167,10 @@ int main(int argc, char *argv[]){
     search_path_in_bf_tree(tree, search_dirname);
     clock_t search_toc = clock();
 
-#ifdef LOGGING
+//#ifdef LOGGING
     printf("Build Time: %f seconds\nSearch Time: %f seconds\n", (double) (build_toc - build_tic) / CLOCKS_PER_SEC,
            (double) (search_toc - search_tic) / CLOCKS_PER_SEC);
-#endif
+//#endif
 		destroy_bf_tree(tree);
 
 //    for ( int i = 0; i < leaf_num; i++ )

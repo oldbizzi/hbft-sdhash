@@ -35,7 +35,3 @@ O executável gerado se encontrará na pasta bin
 3.O parâmetro de memória no test.c é o que muda o tamanho dos filtros a serem utilizados.
 
 4.Para mudar o tipo de árvore, com filtros variáveis ou fixos, é necessário alterar o define no arquivo config.h
-
-
-
-

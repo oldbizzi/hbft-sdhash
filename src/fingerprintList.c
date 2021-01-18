@@ -129,7 +129,7 @@ void fingerprint_against_list_comparison(FINGERPRINT_LIST *fpl, FINGERPRINT *fp)
    while(tmp1 != NULL){
 	     score=fingerprint_compare(tmp1, fp);
 	         if(score >= THRESHOLD)
-	               printf("%s | %s | %.3i \n", tmp1->file_name, fp->file_name, score);
+	               printf("%s | %s | %.3i \n", fp->file_name, tmp1->file_name, score);
 	   tmp1=tmp1->next;
    }
 }
@@ -250,5 +250,3 @@ unsigned int read_fingerprint_file(FINGERPRINT_LIST *fpl, FILE *handle){
 	fclose(handle);
     return 1;
 }
-
-
