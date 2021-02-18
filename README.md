@@ -9,6 +9,22 @@ D. Lillis, F. Breitinger and M. Scanlon. Hierarchical Bloom Filter Trees for App
 
 
 ### Instruções
+### Para o sdhash é preciso a biblioteca boost
+1. Baixe de https://www.boost.org/users/history/version_1_73_0.html
+
+2. Extraia na pasta /usr/local/ com o comando?
+
+```
+tar --bzip2 -xf boost_1_75_0.tar.bz2 - C/usr/local/
+```
+
+3. Na pasta /usr/local/ execute:
+```
+$ sudo ./bootstrap.sh
+```
+```
+$ sudo ./b2 install
+```
 ### Para compilar
 1. Execute
 ```
