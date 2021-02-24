@@ -107,8 +107,7 @@ HASH_ENTRY *init_hash_entry(uint256 *hash_value, int position) {
         fprintf(stderr, "Failed to initialised hash entry.\n");
         exit(1);
     }
-    //printf("no hash entry:");
-  //  for(int r = 0; r < 5; r++)    printf("%X",hash_value[r]);
+
     he->value = hash_value;
     he->position = position;
 

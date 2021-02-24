@@ -284,40 +284,24 @@ void gen_chunk_scores( const uint16_t *chunk_ranks, const uint64_t chunk_size, u
 void gen_chunk_hash( uint8_t *file_buffer, const uint64_t chunk_pos, const uint16_t *chunk_scores, const uint64_t chunk_size,FILE_CONTENTS *fc, FILE_HASH *fh) {
     uint64_t i;
     unsigned int sha1_hash[5];
-    //results_summary[0] = 0,results_summary[1]=0,results_summary[2] = 0, results_summary[3] = 0;
-    int az = 0;
-
-
+    int position = 0;
 
     if (chunk_size > pop_win_size) {
         for( i=0; i<chunk_size-pop_win_size; i++) {
             if( chunk_scores[i] > threshold) {
                     char buf[15]; //storing the cutting hash (55 bits) temporarily
-
                     int size = 0; //controling the position of each part of the hash
-
                     unsigned int *hash_piece; //11 bits selected from hash
 
                     // sintaxe sha1: sha1(input,tamanho,saida);
                     //fixed hash size input of 64 bits
 
                     SHA1(file_buffer + chunk_pos + i, pop_win_size, (uint8_t *)sha1_hash);
-                    //printf("SHA1 = ");
-                    //for(int r = 0; r< 5; r++) printf("%X",sha1_hash[r]);
-                    //printf("\n");
 
-                    // A partir de agora decido o que vai ser feito, adcionado, ou oq
-
-                    add_hash_entry(fh, init_hash_entry(*sha1_hash, i));
-                    //printf("\nfile hash já = ");
-                      //for(int r = 0;r < 5;r++) printf("%X",((fh->last_hash)->value)[r]);
-                      //printf("\n");
-
+                    add_hash_entry(fh, init_hash_entry(*sha1_hash, position++));
                     }
-
             }
         }
-
     }
 
 
@@ -450,16 +434,12 @@ extern FILE_HASH *SDHASH_EXT(FILE_CONTENTS *fc){
       // Cópia dos nomes e tamanhos dos arquivos bonitinho!
       fh->filesize = fc->filesize;
       fh->filename = malloc( (1 + strlen( fc->filename)) * sizeof(char));
+
       if ( fh->filename == NULL ) {
           fprintf( stderr, "Failed to allocate file name space.");
           exit(1);
       }
       strcpy(fh->filename, fc->filename);
-    // Erro no add_hash_to_bloomfilter, não reconhece o valor do hash???
-    //printf("\\\\\\\\\\\\\\\\\\\\\\n");
-    //for(int r = 0;r < 5;r++) printf("hash no sdhash %X\n",fh->first_hash->value[r]);
-    //printf("initial %p\n",fh->first_hash);
-    //printf("last %p\n",fh->last_hash);
 
     is->close();
     delete is;

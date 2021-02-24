@@ -211,7 +211,7 @@ void find(BLOOMFILTER_TREE *bft, FILE_HASH *fh, int i, int *result) {
 }
 
 int *search(BLOOMFILTER_TREE *bft, FILE_CONTENTS *fc) {
-  //printf("AAAAAAAAAAAH\n");
+
 #ifdef LOGGING
     printf("----------------\nSearching for [%s]\n", fc->filename);
 #endif
@@ -222,13 +222,12 @@ int *search(BLOOMFILTER_TREE *bft, FILE_CONTENTS *fc) {
 
     if (bft->type == VARIABLE || bft->built) {
         int *result = calloc(bft->size / 2, sizeof(int));
-        //FILE_HASH *fh = hash_file(fc);
+
         FILE_HASH *fh = SDHASH_EXT(fc);
-        //for(int r = 0; r < 5 ;r++) printf("%X",((fh->last_hash)->value)[r]);
-        //print_file_hash(fh);
+
         find(bft, fh, 1, result);
         destroy_file_hash(fh);
-        //printf("\nfinished\n");
+
         return result;
     } else {
         fprintf(stderr, "Cannot search unbuilt Bloom Filter tree: you must call build() first.");
@@ -253,7 +252,7 @@ void hash_file_to_bf(BLOOMFILTER_TREE *bft, int leaf, FILE_CONTENTS *fc) {
     //FILE_HASH *fh = hash_file(fc);
 
     FILE_HASH *fh = SDHASH_EXT(fc);
-    //printf("size of file hash:%d\n",fh->size);
+    
 
     // Acrescentei isso pra ter o nome do arquivo inserido no filtro de bloom
     get_leaf_bf(bft,leaf)->file_name = malloc(sizeof(char) * (strlen(fc->filename) + 1));
