@@ -7,11 +7,11 @@
 #include "../header/config.h"
 #include "../header/filehash.h"
 
-//extern "C" void add_hash_to_bloomfilter(BLOOMFILTER *bf, uint256 hash_val);
 
 void print_hash_entry(HASH_ENTRY *he) {
     unsigned int *value = he->value;
     for (int i = 0; i < 8; i++) {
+        //printf("A\n");
         printf("%08x", value[i]);
     }
     printf("\n");

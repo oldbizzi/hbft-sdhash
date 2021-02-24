@@ -52,9 +52,9 @@ typedef unsigned short      ushort16;
 typedef unsigned int		uint256[8];
 typedef unsigned long long  uint256r[5];
 
-#ifndef __cplusplus // Change: isso parece fazer com que só declare se for em c e não em c++, mas cuidado, lembrar disso
+//#ifndef __cplusplus // Change: isso parece fazer com que só declare se for em c e não em c++, mas cuidado, lembrar disso
 typedef short bool;
-#endif
+//#endif
 
 #define true 1
 #define false 0

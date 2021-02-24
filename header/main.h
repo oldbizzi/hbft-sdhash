@@ -7,9 +7,6 @@
 #ifndef MAIN_H
 #define	MAIN_H
 
-#ifdef __cplusplus
-extern "C"{
-#endif
 
 #include "../header/config.h"
 #include "../header/hashing.h"
@@ -17,9 +14,6 @@ extern "C"{
 #include "../header/bloomfiltertree.h"
 #include "../header/sdhash.h"
 
-#ifdef __cplusplus
-}
-#endif
 //FILE    *getFileHandle(char *filename);
 int main(int argc, char *argv[]);
 void search_path(BLOOMFILTER_TREE *bft, char *filename);

@@ -8,7 +8,7 @@ set(CMAKE_CXX_FLAGS "-w -std=c++14 -O3 -D_BSD_SOURCE -fpermissive")
 
 set(CMAKE_C_FLAGS "-w -std=c99 -O3 -D_BSD_SOURCE")
 
-set(CPP_FILES src/sdhash.cpp src/main.cpp )
+set(CPP_FILES src/sdhash.cpp)
 
 
 set(C_FILES
@@ -17,7 +17,8 @@ set(C_FILES
     src/hashing.c
     src/helper.c
     src/bloomfiltertree.c header/filehash.h src/filehash.c src/fingerprint.c
-    src/fingerprintList.c)
+    src/fingerprintList.c
+    src/main.c)
 
 
 set_source_files_properties(${C_FILES} PROPERTIES COMPILE_FLAGS "-x c")

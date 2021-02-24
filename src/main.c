@@ -2,7 +2,7 @@
 // Created by David Lillis on 08/09/2016.
 //
 
-extern "C"{
+
 #include "../header/bloomfilter.h"
 #include "../header/bloomfiltertree.h"
 #include "../header/helper.h"
@@ -10,48 +10,26 @@ extern "C"{
 #include "../header/fingerprintList.h"
 #include "../header/fingerprint.h"
 #include "../header/config.h"
-}
-
 #include <unistd.h> // change: adicionei para não dar conflito com o getcwd, cuidado
-
-extern "C"{
-
-BLOOMFILTER_TREE    *init_fixed_bf_tree(unsigned int, unsigned long);
-BLOOMFILTER_TREE    *init_variable_bf_tree(unsigned int, unsigned long);
-void                add_path_to_bf_tree(BLOOMFILTER_TREE *, char *);
-void add_hash_to_bloomfilter(BLOOMFILTER*, unsigned int*);
 #include <time.h>
 #include <stdlib.h>
 #include <dirent.h>
 #include <math.h>
+MODES *mode; // chamando novamente a variável global declarada em config.h
 
-}
-
-
-MODES *mode;
 static void initalizeDefaultModes(int block_size, int min_run){
-	mode = (MODES *)malloc(sizeof(MODES));
-	/*mode->readDB = false;
-	mode->helpmessage = false;
-	mode->generateBF = false;
-	mode->recursive = false;
-	mode->calc_size = false;
-	mode->addToDB = false;
-	mode->combine = false;
-  */
-
+	mode = malloc(sizeof(MODES));
   mode->block_size = block_size;
   mode->min_run = min_run;
 }
+
 /*
 CHANGE: Acrescentei a variável global mode para o resto dos arquivos terem acesso, retirando o antigo arquivo main, essa variável sumia!
 Além disto, coloquei também as declarações de block_size e min_run em uma função, teoricamente não muda nada.
 A variável global não estava sendo alterada então coloquei um define pra isso
 */
 
-
-
-extern "C" void search_path(BLOOMFILTER_TREE *bft, char *filename){
+void search_path(BLOOMFILTER_TREE *bft, char *filename){
     DIR *dir;
     struct dirent *ent;
     const int max_path_length = 1024;
@@ -88,28 +66,22 @@ extern "C" void search_path(BLOOMFILTER_TREE *bft, char *filename){
 }
 
 int main(int argc, char *argv[]){
+  	mode = malloc(sizeof(MODES));
+		mode->min_run = 6;
+		mode->block_size = 64;
 
-  /*  if ( argc == 1 ) {
-        printf("Usage: %s tree_dir search_dir block_size min_run leaf_num", argv[0]);
-        exit(10);
-    }*/
-
-    //mode = malloc(sizeof(MODES));
-    //initalizeDefaultModes(atoi(argv[3]), atoi(argv[4]));
-		initalizeDefaultModes(64, 6);
-		char *tree_dirname = "../../Databases/cb_known_set";
-		char *search_dirname = "../../Databases/cb_target_set";
-		//char *tree_dirname = "./";
-    //char *search_dirname = "./src";
+		//char *tree_dirname = "../../../Databases/cb_known_set";
+		//char *search_dirname = "../../../Databases/cb_target_set";
+		char *tree_dirname = "./src";
+    char *search_dirname = "./src";
 
     // 4: leaves
-    int leaf_num = 8192;
+    int leaf_num = 16;
 
 
     unsigned long mem_upper_limit = 1024ul * 1024ul * 1024ul * 2; // default to 10GiB
 
 // Change: para o novo tamanho de filtro com base no tamanho da base
-
 #ifdef NEW_SIZE
 
 			unsigned long filter_size = BF_SIZE;
